@@ -1,0 +1,57 @@
+
+.main{
+  background-color: rgb(34, 35, 36);
+  width: 100%;
+  height: 130px;
+  /* padding: 5px; */
+}
+ #signupbutton{
+ border-color: green; 
+ color: green;
+ /* background-color: rgb(34, 35, 36); */
+ width: 30%;
+  border-radius: 20px;
+}
+#signinbutton{
+  border-color: green; 
+ color: green;
+ background-color: rgb(34, 35, 36);
+ width: 30%;
+  border-radius: 20px;
+}*/
+.HomePagefooter{
+  background-color: rgb(34, 35, 36);
+  width: 100%;
+  height: 70px;
+  color: chocolate;
+  font-size: 11px;
+} 
+.homepagedashblog{
+  width: 100%;
+  height: 500px;
+  background-color: rgb(145, 221, 235);
+}
+.createblogbutton{
+  background-color: goldenrod;
+  width: 60%;
+  border-radius: 20px;
+  border:solid 1px rgb(229, 237, 241);
+  font-size: 20px;
+  margin-left: 30px;
+}
+/* .text{
+  color:rgb(77, 164, 176);
+} */
+/* .signupdashboard{
+  background-color: rgb(145, 221, 235);
+} */
+/* .row footer{
+  background-color: rgb(34, 35, 36);
+  width: 100%;
+  height: 70px;
+   
+} */
+#icon{
+  margin-top: 15px;
+  margin-left: 0px;
+}
