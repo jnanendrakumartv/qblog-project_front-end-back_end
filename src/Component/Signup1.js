@@ -50,7 +50,7 @@ class Signup1 extends Component{
         }
         let ary=this.state.array.push(reqobj)
         this.setState({ary});
-        let fnamel=this.state.firstname.length, lnamel=this.state.lastname.length, emaill=this.state.email.length,     pwdl=this.state.password.length;
+        let fnamel=this.state.firstname.length, lnamel=this.state.lastname.length, emaill=this.state.email.length, pwdl=this.state.password.length;
         let reg_fname=/^[A-Za-z]{4,12}$/;
         let reg_lname=/^[A-Za-z]{4,12}$/;
         let reg_mail=/^[a-z0-9._%+-]+@[a-z.-]+\.[a-z]{2,4}$/;
@@ -82,7 +82,7 @@ class Signup1 extends Component{
             this.setState({pwd:''});
         }
         
-        if(temp>1) {
+        if(temp>3) {
             this.props.REG();
             browserHistory.push('/signin');
             
