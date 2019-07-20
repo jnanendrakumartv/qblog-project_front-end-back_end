@@ -1,0 +1,121 @@
+import React,{Component} from 'react';
+import {connect} from 'react-redux';
+import jk11 from '../images/jk11.png';
+import {LOGIN} from '../Actions/Action';
+import '../CSS/LogIn.css';
+import tra from'../images/tra.jpg';
+import { SocialIcon } from 'react-social-icons';
+import browserHistory from "../Utils/browserHistory"
+
+class LogIn extends Component{
+
+    constructor(props){
+        super(props);
+        this.state={
+            email:'',
+            password:'',
+            mail:'',
+            pwd:'' 
+        }
+    }
+    handleSubmit1=(event)=> {
+        browserHistory.push("/reg");
+    }
+    handleSubmit5=(event)=>{
+        browserHistory.push("/login")
+    }
+    handleSubmit4=(event)=> {
+        browserHistory.push("/first");
+    }
+    handleChange=(e)=>{
+        this.setState({[e.target.name]:e.target.value});
+    }
+    signin=()=>{
+        let reg_mail=/^[a-z0-9._%+-]+@[a-z.-]+\.[a-z]{2,4}$/;
+        let reg_pwd=/^[@#*&_%$][A-Za-z0-9]{6,13}$/;
+        let emaill=this.state.email.length, pwdl=this.state.password.length;
+        let temp=0;
+        
+        if(emaill===0)this.setState({mail:'Email is required'});
+        else if(!reg_mail.test(this.state.email)) this.setState({mail:'Invalid Email'});
+        else {
+            temp++;
+            this.setState({mail:''});
+        }
+        if(pwdl===0){this.setState({pwd:'Password is required'});}
+        else if(!reg_pwd.test(this.state.password)){this.setState({pwd:'Invalid Password'});}
+        else {
+            temp++;
+            this.setState({pwd:''});
+        }
+        if(temp>1){ 
+            
+            this.props.LOGIN();
+            browserHistory.push('/board');
+        }
+    }
+    
+    render(){
+        return(
+            <div >
+                <div className="Header">
+                <div className="row">
+                <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"><img className="logo" src={jk11} alt={"jk11"} height="80" width="80" onClick={this.handleSubmit4}></img><h4 id="h4"><i>TECHNOLOGIES</i></h4> </div>
+                <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8"></div>
+                <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"><button id="signup" onClick={this.handleSubmit1}>Sign Up</button></div>
+                <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"><button id="signin" onClick={this.handleSubmit5}>SignIn</button></div>
+                <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+                </div>
+            </div>
+            <div className="body">
+                <div className="row">
+                <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>                              
+                <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"><div ><img className="regimage" src={tra} alt={"tra"} ></img> </div></div>                              
+                <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>              
+                <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <div className="signinbody"> <h2 className="red">{this.props.loginmsg}</h2>
+                <h1 className="signintext">Sign In</h1><br/>
+                        <label className="label" id='uname'>Email</label><br/>
+                          <input className="input_box " placeholder="Email" type='text' name='email' onChange={this.handleChange}></input><br/>
+                          <p className='red'>{this.state.mail}</p>
+                          <label className="label" id='pwd'>Password</label><br/>
+                          <input className="input_box " placeholder="Password" type='password' name='password' onChange={this.handleChange}></input><br/>
+                          <p className='red'>{this.state.pwd}</p>
+                          <button className="submitbutton" onClick={this.signin}>Submit</button>
+                  
+                   </div>        
+                    </div> <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>                             
+                    </div>                
+            </div>
+            <div className="footer">
+                <div className="row">
+                <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>                              
+                <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"><div className="address">
+                    <div className="row">
+                    <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div> 
+                    <div id="name" className="col-xs-8 col-sm-8 col-md-8 col-lg-48"><h6><b>JK TECHNOLOGIES</b></h6>
+                    <p>Horizon, HIEMA Convention Center Road,Hebbal Industrial Estate 5,Mysuru-570001, Karnataka -INDIA.</p></div>                              
+                    <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div> 
+                    </div> </div> </div>
+                    <div className="icon">
+                    <SocialIcon id="twitter" url="https://twitter.com/" />
+                    <SocialIcon id="facebook" url="https://www.facebook.com/" />
+                    <SocialIcon id="whatsapp" url="https://www.whatsapp.com/" />
+                    <SocialIcon id="skype" url="https://www.skype.com/" />
+                    <SocialIcon id="email" url="https://www.email.com/" />
+                    <SocialIcon id="linkedein" url="http://linkedin.com/" /><br/><p>Copyright @ All rights reserved</p>
+                        </div>  
+                <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>                              
+                    
+                </div>
+            </div>
+            </div>
+        )
+    }
+}
+const mapStateToprops=(state)=>{
+    const {loginmsg}=state.Register_reducer;
+    const {regmsg}=state.Register_reducer;
+    return {loginmsg,regmsg};
+};
+export default connect(mapStateToprops , {LOGIN}) (LogIn);

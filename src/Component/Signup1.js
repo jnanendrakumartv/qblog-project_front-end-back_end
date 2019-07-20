@@ -127,7 +127,7 @@ class Signup1 extends Component{
                           <p className='red'>{this.state.pwd}</p>
                           {/* <label className="label">ConformPassword</label><br/>
                           <input className="input_box " placeholder="conform password."></input><br/> */}
-                          <button className="submitbutton" onClick={this.handleSubmit}>Submit</button><label className="allareadyaccount" onClick={this.handleSubmit3}>Already have an Account</label>
+                          <button className="submitbutton" onClick={this.handleSubmit}>Submit</button><a className='lable right' href="/home">Already have an Account</a>
                       
                       </div>
                       <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>

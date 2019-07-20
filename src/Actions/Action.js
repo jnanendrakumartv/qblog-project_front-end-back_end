@@ -10,8 +10,8 @@ export function REG(){
         dispatch({type:"REG"});
     }
 }
-export function handleClick(){
-    return function(dispatch){
-        dispatch({type:"CLICK"});
-    }
-}
+// export function handleClick(){
+//     return function(dispatch){
+//         dispatch({type:"CLICK"});
+//     }
+// }
