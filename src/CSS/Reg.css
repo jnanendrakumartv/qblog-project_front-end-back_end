@@ -133,7 +133,7 @@
     font-weight: bold;
     font-family: sans-serif;
 }
-.signintext{
+.signuptext{
     color: black;
     font-weight: bold;
     font-family: sans-serif;
@@ -156,6 +156,7 @@
   position: relative;overflow: hidden;
 }
 .submitbutton:hover{
+    background-color: aquamarine;
     -webkit-transform: scale(1.2);
     -ms-transform: scale(1.2);
     transform: scale(1.2);

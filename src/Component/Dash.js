@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
-import jk11 from '../images/jk11.png';
+import zz from '../images/zz.png';
 // import {LOGIN} from '../Actions/Action';
 import '../CSS/LogIn.css';
 import tra from'../images/tra.jpg';
@@ -28,7 +28,7 @@ class Dash extends Component{
             <div >
                 <div className="Header">
                 <div className="row">
-                <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"><img className="logo" src={jk11} alt={"jk11"} height="80" width="80" onClick={this.handleSubmit4}></img><h4 id="h4"><i>TECHNOLOGIES</i></h4> </div>
+                <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"><img className="logo" src={zz} alt={"zz"} height="80" width="80" onClick={this.handleSubmit4}></img><h4 id="h4"><i>TECHNOLOGIES</i></h4> </div>
                 <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8"></div>
                 <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"><button id="signup" onClick={this.handleSubmit1}>Sign Up</button></div>
                 <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"><button id="signin" onClick={this.handleSubmit5}>SignIn</button></div>
