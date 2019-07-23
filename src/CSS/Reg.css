@@ -165,6 +165,7 @@
     color: rgb(25, 25, 211);
     font-family: sans-serif;
     font-stretch: expanded;
+    font-size: 15px;
     font-variant-alternates: annotation();
 }
 .red{
