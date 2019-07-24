@@ -6,6 +6,7 @@ import '../CSS/Reg.css';
 import tra from'../images/tra.jpg';
 import { SocialIcon } from 'react-social-icons';
 import browserHistory from "../Utils/browserHistory"
+import axios from 'axios';
 
 class Register extends Component{
     constructor(props){
@@ -44,6 +45,13 @@ class Register extends Component{
             email1:this.state.email,
             password1:this.state.password 
         }
+        console.log(reqobj)
+        
+        axios.post('http://localhost:9000/createUser', { reqobj })
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+      })
         let ary=this.state.array.push(reqobj)
         this.setState({ary});
         let fnamel=this.state.firstname.length, lnamel=this.state.lastname.length, emaill=this.state.email.length, pwdl=this.state.password.length;

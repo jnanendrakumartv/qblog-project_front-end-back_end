@@ -1,9 +1,11 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
 import zz from '../images/zz.png';
+import data from '../images/data.jpg';
 // import {LOGIN} from '../Actions/Action';
 import '../CSS/LogIn.css';
-import tra from'../images/tra.jpg';
+import '../CSS/Dash.css';
+// import tra from'../images/tra.jpg';
 import { SocialIcon } from 'react-social-icons';
 import browserHistory from "../Utils/browserHistory"
 
@@ -29,25 +31,48 @@ class Dash extends Component{
                 <div className="Header">
                 <div className="row">
                 <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"><img className="logo" src={zz} alt={"zz"} height="80" width="80" onClick={this.handleSubmit4}></img><h4 id="h4"><i>TECHNOLOGIES</i></h4> </div>
-                <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8"></div>
-                <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"><button id="signup" onClick={this.handleSubmit1}>Sign Up</button></div>
-                <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"><button id="signin" onClick={this.handleSubmit5}>SignIn</button></div>
+                <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>
                 <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+                <div className="col-xs-2 col-sm-2 col-md-2 col-lg-"></div>
+                <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"><select><option value="platform">PLATFORM</option>
+                <option >Windows</option><option >MAC OS</option><option >LINEX</option></select></div>
+                <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"><select><option value="marketplace">MARKETPLACE</option></select></div>
+                <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"><select><option value="marketingtools">MARKETING TOOLS</option></select></div>
+                <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2"><select><option value="solution">SOLUTIONS</option></select></div> 
                 </div>
             </div>
+
             <div className="body">
                 <div className="row">
                 <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>                              
-                <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                    <div><img className="regimage" src={tra} alt={"tra"} ></img> </div></div>                              
-                <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>              
-                <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                <div className="dashboardbody"> 
-                
-                  
-                   </div>        
-                    </div> <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>                             
-                    </div>                
+                <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2"><img className="dashbordfirstimage" src={data} alt={"data"} height="140" width="140" ></img></div>                              
+                <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>                            
+                <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                  < div className="dashbordcontent"> <h4> CONTENT MARKETING</h4>    </ div>
+                    
+                    </div>                                                      
+                </div>    
+                <div className="row">
+                <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>                              
+                <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2"><img className="dashbordfirstimage" src={data} alt={"data"} height="140" width="140" ></img></div>                              
+                <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>                              
+                <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                    
+                    
+                    </div>                                                      
+                </div>  
+                <div className="row">
+                <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>                              
+                <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2"><img className="dashbordfirstimage" src={data} alt={"data"} height="140" width="140" ></img></div>                              
+                <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>                              
+                <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8"></div>                                                      
+                </div>  
+                <div className="row">
+                <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>                              
+                <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2"><img className="dashbordfirstimage" src={data} alt={"data"} height="140" width="140" ></img></div>                              
+                <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>                              
+                <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8"></div>                                                      
+                </div>              
             </div>
             <div className="footer">
                 <div className="row">
