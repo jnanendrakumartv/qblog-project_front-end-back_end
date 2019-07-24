@@ -1,12 +1,13 @@
 import React,{Component} from 'react';
-import {connect} from 'react-redux';
+// import {connect} from 'react-redux';
+import { createUser, userSignin} from  './user';
 import zz from '../images/zz.png';
-import {REG} from '../Actions/Action';
+// import {REG} from '../Actions/Action';
 import '../CSS/Reg.css';
 import tra from'../images/tra.jpg';
 import { SocialIcon } from 'react-social-icons';
 import browserHistory from "../Utils/browserHistory"
-import axios from 'axios';
+// import axios from 'axios';
 
 class Register extends Component{
     constructor(props){
@@ -16,10 +17,11 @@ class Register extends Component{
             lastname:'',
             email:'',
             password:'',
-            fname:'',
-            lname:'',
-            mail:'',
-            pwd:'',
+            fnameError:'',
+            lnameError:'',
+            emailError:'',
+            passwordError:'',
+            modal: false,login_modal: false,
             array:[] 
         }
     }
@@ -33,62 +35,83 @@ class Register extends Component{
     handleSubmit4=(event)=> {
         browserHistory.push("/first");
     }
-    handleChange=(e)=>{
+
+   handleChange=(e)=>{
         this.setState({[e.target.name]:e.target.value});
     }
-    handleSubmit=(e)=>{
-        // debugger;
+    // handleSignin=()=>{
+    //     let reqobj1={
+    //         email1:this.state.email,
+    //         password1:this.state.password,
+    //     }
+    //     userSignin (reqobj1).then(res => {
+    //         this.props.history.push('/')
+    //         })        
+    // }
+
+
+   handleSubmit6=(e)=>{
+        e.preventDefault();
         let t=0;
         let reqobj={
             firstname1:this.state.firstname,
             lastname1:this.state.lastname,
             email1:this.state.email,
-            password1:this.state.password 
+            password1:this.state.password
+            
         }
-        console.log(reqobj)
-        
-        axios.post('http://localhost:9000/createUser', { reqobj })
-      .then(res => {
-        console.log(res);
-        console.log(res.data);
-      })
-        let ary=this.state.array.push(reqobj)
-        this.setState({ary});
-        let fnamel=this.state.firstname.length, lnamel=this.state.lastname.length, emaill=this.state.email.length, pwdl=this.state.password.length;
+
+        console.log(reqobj);
+
+
+
+        createUser (reqobj).then(res => {
+        // if (firstname && username && email && password && confirmPassword && mobileNumber) {
+            this.props.history.push('/login')
+        // }
+        })
+        .catch (res=> {
+            prompt(res)
+        })
+
+
+        // let ary=this.state.array.push(reqobj)
+        // this.setState({ary});
+        // let fnamel=this.state.firstname.length, lnamel=this.state.lastname.length, emaill=this.state.email.length, pwdl=this.state.password.length;
         let reg_user=/^[A-Za-z0-9]{2,10}$/;
-        let reg_mail=/^[a-z0-9._%+-]+@[a-z.-]+\.[a-z]{2,4}$/;
+        let reg_email=/^[a-z0-9._%+-]+@[a-z.-]+\.[a-z]{2,4}$/;
         let reg_pwd=/^[@#*&_%$][A-Za-z0-9]{6,13}$/;
        
-        if(fnamel===0) this.setState({fname:'Firstname is required'});
-        else if(!reg_user.test(this.state.firstname)) this.setState({fname:'Invalid Firstname'});
+        if(!this.state.firstname) this.setState({fnameError:'Firstname is required'});
+        else if(!reg_user.test(this.state.firstname)) this.setState({fnameError:'Invalid Firstname'});
         else{
              t++;
-             this.setState({fname:''});
+             this.setState({fnameError:''});
         }
            
-        if(lnamel===0) this.setState({lname:'Lastname is required'});
-        else if(!reg_user.test(this.state.lastname)) this.setState({lname:'Invalid Lastname'}); 
+        if(!this.state.lastname) this.setState({lnameError:'Lastname is required'});
+        else if(!reg_user.test(this.state.lastname)) this.setState({lnameError:'Invalid Lastname'}); 
         else {
             t++;
-            this.setState({lname:''});
+            this.setState({lnameError:''});
         }
-        
-        if(emaill===0) this.setState({mail:'Email is required'});
-        else if(!reg_mail.test(this.state.email)) this.setState({mail:'Invalid Email'});
-        else { t++;
-        this.setState({mail:''});
-        }
-    
-        if(pwdl===0) this.setState({pwd:'Password is required'});
-        else if(!reg_pwd.test(this.state.password)) this.setState({pwd:'passwors should contain !,@,#,$,%,&,*'});
+        if(!this.state.email) this.setState({emailError:'Email is required'});
+        else if(!reg_email.test(this.state.email)) this.setState({emailError:'Invalid Email'}); 
         else {
             t++;
-            this.setState({pwd:''});
+            this.setState({emailError:''});
+        }
+
+        if(!this.state.password) this.setState({passwordError:'Password is required'});
+        else if(!reg_pwd.test(this.state.password)) this.setState({passwordError:'Invalid Password'});
+        else {
+            t++;
+            this.setState({passwordError:''});
         }
         
         if(t>3) {
-            this.props.REG();
-            browserHistory.push('/login');
+            // this.props.REG();
+            // browserHistory.push('/login');
         }
     }      
     render(){
@@ -125,7 +148,7 @@ class Register extends Component{
                    <p className='red'>{this.state.pwd}</p>
                    {/* <lable className="label">Conform Password</lable><br/>   
                    <input className="input_box" placeholder="coform password"></input><br/>  */}
-                   <button className="submitbutton" onClick={this.handleSubmit}><b>Submit</b></button><a id="link" href="/login"><b>Allready Have an Account</b></a>            
+                   <button className="submitbutton" onClick={this.handleSubmit6}><b>Submit</b></button><a id="link" href="/login"><b>Allready Have an Account</b></a>            
                    </div>        
                     </div> <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>                             
                     </div>                
@@ -153,11 +176,11 @@ class Register extends Component{
                 </div>
             </div>
             </div>
-        )
+        );
     }
 }
-const mapStateToprops=(state)=>{
-    const {regmsg}=state.Register_reducer;
-    return {regmsg};
-};
-export default connect(mapStateToprops, {REG}) (Register);
+// const mapStateToprops=(state)=>{
+//     const {regmsg}=state.Register_reducer;
+//     return {regmsg};
+// };
+export default  Register;

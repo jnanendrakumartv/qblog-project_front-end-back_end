@@ -81,3 +81,15 @@
 #d{
     padding: 30px;
 }
+.body{
+    height: 150%;
+    padding: 10px;
+}
+#java{
+    padding: 5px;
+}
+.raman{
+    border-radius: 50px;
+    height: 100;
+    widows: 100;
+}
