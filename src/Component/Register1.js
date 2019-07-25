@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 // import {connect} from 'react-redux';
-import { createUser, userSignin} from  './user';
 import zz from '../images/zz.png';
+import {createUser} from  './user';
 // import {REG} from '../Actions/Action';
 import '../CSS/Reg.css';
 import tra from'../images/tra.jpg';
@@ -20,45 +20,32 @@ class Register extends Component{
             fnameError:'',
             lnameError:'',
             emailError:'',
-            passwordError:'',
-            modal: false,login_modal: false,
-            array:[] 
+            passwordError:''
         }
     }
-    handleSubmit1=(event)=> {
+    handleSubmit1=(e)=> {
         browserHistory.push("/reg");
     }
    
-    handleSubmit5=(event)=> {
+    handleSubmit5=(e)=> {
         browserHistory.push("/login");
     }
-    handleSubmit4=(event)=> {
+    handleSubmit4=(e)=> {
         browserHistory.push("/first");
     }
-
-   handleChange=(e)=>{
+    handleChange=(e)=>{
         this.setState({[e.target.name]:e.target.value});
     }
-    // handleSignin=()=>{
-    //     let reqobj1={
-    //         email1:this.state.email,
-    //         password1:this.state.password,
-    //     }
-    //     userSignin (reqobj1).then(res => {
-    //         this.props.history.push('/')
-    //         })        
-    // }
-
-
-   handleSubmit6=(e)=>{
+     handleSubmit=(e)=>{
+        //  debugger
         e.preventDefault();
         let t=0;
         let reqobj={
             firstname1:this.state.firstname,
             lastname1:this.state.lastname,
             email1:this.state.email,
-            password1:this.state.password
-            
+            password1:this.state.password,
+            mobile1:this.state.mobile 
         }
 
         console.log(reqobj);
@@ -66,27 +53,26 @@ class Register extends Component{
 
 
         createUser (reqobj).then(res => {
-        // if (firstname && username && email && password && confirmPassword && mobileNumber) {
-            this.props.history.push('/login')
-        // }
+        this.props.history.push('/login');
         })
+        // userSignin (reqobj).then(res => {
+        //     this.props.history.push('/board');
+        // })
         .catch (res=> {
-            prompt(res)
+            prompt("sucessfully")
         })
 
 
-        // let ary=this.state.array.push(reqobj)
-        // this.setState({ary});
-        // let fnamel=this.state.firstname.length, lnamel=this.state.lastname.length, emaill=this.state.email.length, pwdl=this.state.password.length;
-        let reg_user=/^[A-Za-z0-9]{2,10}$/;
-        let reg_email=/^[a-z0-9._%+-]+@[a-z.-]+\.[a-z]{2,4}$/;
-        let reg_pwd=/^[@#*&_%$][A-Za-z0-9]{6,13}$/;
+            let reg_user=/^[A-Za-z0-9]{2,10}$/;
+            let reg_pwd=/^[@#*&_%$!][A-Za-z0-9]{6,13}$/;
+            let reg_email=/^[a-zA-Z0-9]+@+[a-zA-Z0-9]+.+[A-z]/;
+           
        
-        if(!this.state.firstname) this.setState({fnameError:'Firstname is required'});
+       if(!this.state.firstname) this.setState({fnameError:'Firstname is required'});
         else if(!reg_user.test(this.state.firstname)) this.setState({fnameError:'Invalid Firstname'});
         else{
              t++;
-             this.setState({fnameError:''});
+             this.setState({fnameError:''});   
         }
            
         if(!this.state.lastname) this.setState({lnameError:'Lastname is required'});
@@ -109,11 +95,12 @@ class Register extends Component{
             this.setState({passwordError:''});
         }
         
-        if(t>3) {
+        if(t>4) {
             // this.props.REG();
-            // browserHistory.push('/login');
+            // browserHistory.push('/');
+            
         }
-    }      
+    }  
     render(){
         return(
             <div >
@@ -136,19 +123,19 @@ class Register extends Component{
                   <h1 className="signuptext"><b>Sign Up</b></h1>
                    <lable className="label">First Name</lable><br/>   
                    <input className="input_box" placeholder="first name" type='text' name='firstname' onChange={this.handleChange}></input><br/> 
-                   <p className='red'>{this.state.fname}</p>
+                   <p className='red'>{this.state.fnameError}</p>
                    <lable className="label">Last Name</lable><br/>   
                    <input className="input_box" placeholder="last name" type='text' name='lastname' onChange={this.handleChange}></input><br/> 
-                   <p className='red'>{this.state.lname}</p>
+                   <p className='red'>{this.state.lnameError}</p>
                    <lable className="label">Email</lable><br/>   
                    <input className="input_box" placeholder="email" type='text' name='email' onChange={this.handleChange}></input><br/> 
-                   <p className='red'>{this.state.mail}</p>
+                   <p className='red'>{this.state.emailError}</p>
                    <lable className="label">Password</lable><br/>   
                    <input className="input_box" placeholder="password" type='password' name='password' onChange={this.handleChange}></input><br/> 
-                   <p className='red'>{this.state.pwd}</p>
+                   <p className='red'>{this.state.passwordError}</p>
                    {/* <lable className="label">Conform Password</lable><br/>   
                    <input className="input_box" placeholder="coform password"></input><br/>  */}
-                   <button className="submitbutton" onClick={this.handleSubmit6}><b>Submit</b></button><a id="link" href="/login"><b>Allready Have an Account</b></a>            
+                   <button className="submitbutton" onClick={this.handleSubmit}><b>Submit</b></button><a id="link" href="/login"><b>Allready Have an Account</b></a>            
                    </div>        
                     </div> <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>                             
                     </div>                
@@ -176,11 +163,11 @@ class Register extends Component{
                 </div>
             </div>
             </div>
-        );
+        )
     }
 }
 // const mapStateToprops=(state)=>{
 //     const {regmsg}=state.Register_reducer;
 //     return {regmsg};
 // };
-export default  Register;
+export default Register;

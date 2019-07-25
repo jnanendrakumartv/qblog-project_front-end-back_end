@@ -11,15 +11,16 @@
 }
 .Header{
     width: 100%;
+    height: 1%;
     display: none;
     margin: auto;
     padding: 0;
     display: block;
     text-align: center;
     background-color: black;
-    color: aliceblue;
+   
     font-size: 10px;
-    padding-top: 3%;
+    /* padding-top: 3%; */
 }
 .footer{
     width: 100%;
@@ -39,32 +40,7 @@
     size: 2%;
 }
 
-#twitter:hover{
-    -webkit-transform: scale(1.2);
-    -ms-transform: scale(1.2);
-    transform: scale(1.2);
-}
-#facebook:hover{
-    -webkit-transform: rotateZ(-40deg);
-    -ms-transform: rotateZ(-40deg);
-    transform: rotateZ(-40deg);
-}
-#whatsapp:hover{
-    -webkit-transform: scale(1.2);
-    -ms-transform: scale(1.2);
-    transform: scale(1.2);
-}
-#skype:hover{
-    box-shadow: inset 0 0 0 25px #53a7ea;
-}
-#email:hover{
-    -webkit-transform: translateX(-3px);
-    transform: translateX(-3px);
-}
-#linkedein:hover{
-    -webkit-transform: translateX(5px);
-    transform: translateX(5px);
-}
+
 #h4{
     color: aqua;
     font-family: "Times New Roman", Times, serif;
@@ -111,10 +87,10 @@
 .languagebutton{
     color: rgb(8, 87, 20);
     border:solid 2px rgb(8, 87, 20);
-    font-size: 15px;
+    font-size: 12px;
     background-color: rgb(31, 32, 33);
     border-radius: 3px solid;
-    width: 120%;
+    width: 160%;
     margin: 40%;
    
 }
@@ -128,10 +104,10 @@
 .authorbutton{
     color: rgb(8, 87, 20);
     border:solid 2px rgb(8, 87, 20);
-    font-size: 15px;
+    font-size: 12px;
     background-color: rgb(31, 32, 33);
     border-radius: 3px solid;
-    width: 120%;
+    width: 150%;
     margin: 40%;
 }
 .authorbutton:hover{
@@ -144,10 +120,10 @@
 .solutionbutton{
     color: rgb(8, 87, 20);
     border:solid 2px rgb(8, 87, 20);
-    font-size: 15px;
+    font-size: 12px;
     background-color: rgb(31, 32, 33);
     border-radius: 3px solid;
-    width: 120%;
+    width: 150%;
     margin: 40%;
 }
 .solutionbutton:hover{
@@ -160,10 +136,10 @@
 .pricebutton{
     color: rgb(8, 87, 20);
     border:solid 2px rgb(8, 87, 20);
-    font-size: 15px;
+    font-size: 12px;
     background-color: rgb(31, 32, 33);
     border-radius: 3px solid;
-    width: 100%;
+    width: 150%;
     margin: 40%;
 }
 .pricebutton:hover{
@@ -177,4 +153,52 @@
     background-color: cornflowerblue;
 color:white;
 border-radius: 3px solid;
+}
+.clickbutton{
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;  
+}
+#net{
+    border: 5px solid;
+    border-color: black;
+    padding: 1% 2% 1% 2%;
+    margin: 1%;
+}
+ #cpg{
+    border: 5px solid;
+   
+    border-color: black;
+    padding: 1% 2% 1% 2%;
+    margin: 1%;
+} 
+ #java{
+    border: 5px solid;
+    border-color: black;
+    padding: 1% 2% 1% 2%;
+    margin: 1%;
+} 
+#sqlb{
+    border: 5px solid;
+    border-color: black;
+    padding: 1% 2% 1% 2%;
+    margin: 1%;
+}
+.color{
+    color: aliceblue;
+}
+/* .one {
+	display: none;
+	width: 50px;
+	position: absolute;
+	margin: 0;
+	bottom: 100px;
+	background: #e81050;
+	z-index: 1;
+} */
+.hideicn {
+	font-size: 25px;
+	margin: 10px;
 }

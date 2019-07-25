@@ -6,7 +6,6 @@ import * as serviceWorker from './serviceWorker';
 
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
-// ReactDOM.render(<App />, document.getElementById('root'));
 import Register_reducer from './Reducers/Register_reducer';
 import Reducers from './Reducers';
 import ReduxThunk from 'redux-thunk'
