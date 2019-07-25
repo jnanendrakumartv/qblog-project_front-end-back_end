@@ -5,6 +5,9 @@ import net from '../images/net.jpg';
 import cbook from '../images/cbook.jpg';
 import javabook from '../images/javabook.jpg';
 import rajaraman from '../images/rajaraman.jpg';
+import balagurusamy from '../images/balagurusamy.jpg';
+import padma from '../images/padma.png';
+import java from '../images/java.jpg';
 import sql from '../images/sql.jpg';
 // import {LOGIN} from '../Actions/Action';
 // import '../CSS/LogIn.css';
@@ -77,7 +80,7 @@ class Dash extends Component{
                   < div className="dashbordcontent"> <h6 > <b> .NET PROGRAMING </b></h6> 
                   <p>A .NET Programmer is responsible for designing and developing software and web pages based on given performance requirements and design.</p>
                   {/* <img alt="adele-pic" src="//www.gstatic.com/tv/thumb/persons/521029/521029_v9_ba.jpg"/> */}
-                  <button className="likebutton" onClick={this.incrementMe}> Likes:{this.state.count} </button>
+                  <button className="likebutton" onClick={this.incrementMe}> Likes:{this.state.count} </button> <input placeholder="write your comment..."></input>
                    </ div>
                   <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
                     
@@ -88,23 +91,40 @@ class Dash extends Component{
                 <div id="c " className="row">
                 <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>                              
                 <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2"><img className="sqlbook" src={cbook} alt={"cbook"} height="100" width="100" ></img></div>                              
-                <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>                              
-                <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8"></div>                                                      
+                <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"><img className="balu" src={balagurusamy} alt={"balagurusamy"} height="100" width="100" ></img></div>                              
+                <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                < div className="dashbordcontent"> <h6 > <b> C++ Programming </b></h6> 
+                  <p>C++ Programmer is responsible for designing and developing software and web pages based on given performance requirements and design.</p>
+                  {/* <img alt="adele-pic" src="//www.gstatic.com/tv/thumb/persons/521029/521029_v9_ba.jpg"/> */}
+                  <button className="likebutton" onClick={this.incrementMe}> Likes:{this.state.count} </button> <input placeholder="write your comment..."></input>
+                   </ div>
+                  </div> 
+                <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>                                                     
                 </div>     
                 
 
                 <div id="java" className="row">
                 <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>                              
                 <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2"><img className="java" src={javabook} alt={"javabook"} height="100" width="100" ></img></div>                              
-                <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>                              
-                <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8"></div>                                                      
+                <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"><img className="padma" src={padma} alt={"padma"} height="100" width="100" ></img></div>                              
+                <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">< div className="dashbordcontent"> <h6 > <b> JAVA PROGRAMING </b></h6> 
+                  <p>JAVA Programmer is responsible for designing and developing software and web pages based on given performance requirements and design.</p>
+                  {/* <img alt="adele-pic" src="//www.gstatic.com/tv/thumb/persons/521029/521029_v9_ba.jpg"/> */}
+                  <button className="likebutton" onClick={this.incrementMe}> Likes:{this.state.count} </button> <input placeholder="write your comment..."></input>
+                   </ div></div> 
+                <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>                                                    
                 </div>  
 
                 <div id="sql " className="row">
                 <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>                              
                 <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2"><img className="sqlbook" src={sql} alt={"sql"} height="100" width="100" ></img></div>                              
-                <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>                              
-                <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8"></div>                                                      
+                <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"><img className="java1" src={java} alt={"java"} height="100" width="100" ></img></div>                              
+                <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6"> < div className="dashbordcontent"> <h6 > <b> SQL PROGRAMING </b></h6> 
+                  <p>SQL Programmer is responsible for designing and developing software and web pages based on given performance requirements and design.</p>
+                  {/* <img alt="adele-pic" src="//www.gstatic.com/tv/thumb/persons/521029/521029_v9_ba.jpg"/> */}
+                  <button className="likebutton" onClick={this.incrementMe}> Likes:{this.state.count} </button> <input placeholder="write your comment..."></input>
+                   </ div></div> 
+                <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>                                                   
                 </div>              
             </div>
 
