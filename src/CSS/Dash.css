@@ -93,3 +93,73 @@
     height: 100;
     widows: 100;
 }
+.languagebutton{
+    color: rgb(8, 87, 20);
+    border:solid 2px rgb(8, 87, 20);
+    font-size: 15px;
+    background-color: rgb(31, 32, 33);
+    border-radius: 3px solid;
+    width: 120%;
+    margin: 40%;
+   
+}
+.languagebutton:hover{
+    background-color:  rgb(8, 87, 20);
+    color: aliceblue;
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+}
+.authorbutton{
+    color: rgb(8, 87, 20);
+    border:solid 2px rgb(8, 87, 20);
+    font-size: 15px;
+    background-color: rgb(31, 32, 33);
+    border-radius: 3px solid;
+    width: 120%;
+    margin: 40%;
+}
+.authorbutton:hover{
+    background-color:  rgb(8, 87, 20);
+    color: aliceblue;
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+}
+.solutionbutton{
+    color: rgb(8, 87, 20);
+    border:solid 2px rgb(8, 87, 20);
+    font-size: 15px;
+    background-color: rgb(31, 32, 33);
+    border-radius: 3px solid;
+    width: 120%;
+    margin: 40%;
+}
+.solutionbutton:hover{
+    background-color:  rgb(8, 87, 20);
+    color: aliceblue;
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+}
+.pricebutton{
+    color: rgb(8, 87, 20);
+    border:solid 2px rgb(8, 87, 20);
+    font-size: 15px;
+    background-color: rgb(31, 32, 33);
+    border-radius: 3px solid;
+    width: 100%;
+    margin: 40%;
+}
+.pricebutton:hover{
+    background-color:  rgb(8, 87, 20);
+    color: aliceblue;
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+}
+.likebutton{
+    background-color: cornflowerblue;
+color:white;
+border-radius: 3px solid;
+}
