@@ -6,7 +6,7 @@
     display: block;
     text-align: center;
     background-color: black;
-    height: 30%;
+    height: 90px;
 }
 #signup{
     color: rgb(8, 87, 20);
@@ -15,7 +15,7 @@
     background-color: rgb(31, 32, 33);
     border-radius: 3px solid;
     width: 100%;
-    margin: 40%;
+    margin: 30%;
    
 }
 #signup:hover{
@@ -32,7 +32,7 @@
     background-color: rgb(31, 32, 33);
     border-radius: 3px solid;
     width: 100%;
-    margin: 40%;
+    margin: 30%;
 }
 #signin:hover{
     background-color:  rgb(8, 87, 20);
@@ -44,13 +44,13 @@
 .body{
     background: url(../images/raaa.jpg);
    width: 100%;
-   height: 80%;
+   height: 750px;
 }
 
 .homeimage{
     width: 100%;
     height: 2000%;
-    padding: 1% 8% 8% 8%;
+    padding: 1% 8% 1% 8%;
 }
 #h3{
     margin: 3%;
@@ -63,14 +63,14 @@
     display: block;
     text-align: center;
     background-color: black;
-    height: 110%;
+    height: 120px;
 }
 .address{
     padding: 3%;
 }
 .icon{
     padding: 1%;
-    size: 2%;
+   
 }
 
 #twitter:hover{

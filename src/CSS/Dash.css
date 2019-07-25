@@ -57,7 +57,9 @@
 #d{
     padding: 30px;
 }
-.body{
+.body1{
+    /* background: url(../images/blank.jpg); */
+background-color: aliceblue;
     height: 150%;
     padding: 10px;
 }
@@ -87,11 +89,12 @@
 .languagebutton{
     color: rgb(8, 87, 20);
     border:solid 2px rgb(8, 87, 20);
-    font-size: 12px;
+    font-size: 15px;
     background-color: rgb(31, 32, 33);
     border-radius: 3px solid;
+    height: 30px;
     width: 160%;
-    margin: 40%;
+    margin: 10%;
    
 }
 .languagebutton:hover{
@@ -104,11 +107,12 @@
 .authorbutton{
     color: rgb(8, 87, 20);
     border:solid 2px rgb(8, 87, 20);
-    font-size: 12px;
+    font-size: 15px;
+    height: 30px;
     background-color: rgb(31, 32, 33);
     border-radius: 3px solid;
     width: 150%;
-    margin: 40%;
+    margin: 10%;
 }
 .authorbutton:hover{
     background-color:  rgb(8, 87, 20);
@@ -120,11 +124,12 @@
 .solutionbutton{
     color: rgb(8, 87, 20);
     border:solid 2px rgb(8, 87, 20);
-    font-size: 12px;
+    font-size: 15px;
+    height: 30px;
     background-color: rgb(31, 32, 33);
     border-radius: 3px solid;
     width: 150%;
-    margin: 40%;
+    margin: 10%;
 }
 .solutionbutton:hover{
     background-color:  rgb(8, 87, 20);
@@ -136,11 +141,12 @@
 .pricebutton{
     color: rgb(8, 87, 20);
     border:solid 2px rgb(8, 87, 20);
-    font-size: 12px;
+    font-size: 15px;
+    height: 30px;
     background-color: rgb(31, 32, 33);
     border-radius: 3px solid;
     width: 150%;
-    margin: 40%;
+    margin: 10%;
 }
 .pricebutton:hover{
     background-color:  rgb(8, 87, 20);
@@ -155,6 +161,13 @@ color:white;
 border-radius: 3px solid;
 }
 .clickbutton{
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;  
+}
+.clickbutton1{
     background-color: Transparent;
     background-repeat:no-repeat;
     border: none;

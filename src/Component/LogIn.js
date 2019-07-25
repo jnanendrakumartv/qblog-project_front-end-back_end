@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
-import zz from '../images/zz.png';
+import clear from '../images/clear.png';
 import {LOGIN} from '../Actions/Action';
 import '../CSS/LogIn.css';
 import tra from'../images/tra.jpg';
@@ -60,7 +60,7 @@ class LogIn extends Component{
             <div >
                 <div className="Header">
                 <div className="row">
-                <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"><img className="logo" src={zz} alt={"zz"} height="80" width="80" onClick={this.handleSubmit4}></img><h4 id="h4"><i>TECHNOLOGIES</i></h4> </div>
+                <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"><img className="logo" src={clear} alt={"clear"} height="50" width="50" onClick={this.handleSubmit4}></img><h4 id="h4"><i>CLEARVOICE</i></h4> </div>
                 <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8"></div>
                 <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"><button id="signup" onClick={this.handleSubmit1}>Sign Up</button></div>
                 <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"><button id="signin" onClick={this.handleSubmit5}>SignIn</button></div>
@@ -93,7 +93,7 @@ class LogIn extends Component{
                 <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"><div className="address">
                     <div className="row">
                     <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div> 
-                    <div id="name" className="col-xs-8 col-sm-8 col-md-8 col-lg-48"><h6><b>JK TECHNOLOGIES</b></h6>
+                    <div id="name" className="col-xs-8 col-sm-8 col-md-8 col-lg-48"><h6><b>CLEAR VOICE</b></h6>
                     <p>Horizon, HIEMA Convention Center Road,Hebbal Industrial Estate 5,Mysuru-570001, Karnataka -INDIA.</p></div>                              
                     <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div> 
                     </div> </div> </div>
