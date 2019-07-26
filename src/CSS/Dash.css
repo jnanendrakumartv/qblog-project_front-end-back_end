@@ -30,15 +30,15 @@
     display: block;
     text-align: center;
     background-color: black;
-    height: 110%;
+    height: 100%;
 }
 .address{
     padding: 3%;
 }
-.icon{
+/* .icon{
     padding: 1%;
     size: 2%;
-}
+} */
 
 
 #h4{
@@ -87,7 +87,8 @@ background-color: aliceblue;
     widows: 100;
 }
 .languagebutton{
-    color: rgb(8, 87, 20);
+    color: aliceblue;
+    /* color: rgb(8, 87, 20); */
     border:solid 2px rgb(8, 87, 20);
     font-size: 15px;
     background-color: rgb(31, 32, 33);
@@ -105,7 +106,7 @@ background-color: aliceblue;
     transform: scale(1.2);
 }
 .authorbutton{
-    color: rgb(8, 87, 20);
+    color: aliceblue;
     border:solid 2px rgb(8, 87, 20);
     font-size: 15px;
     height: 30px;
@@ -122,7 +123,7 @@ background-color: aliceblue;
     transform: scale(1.2);
 }
 .solutionbutton{
-    color: rgb(8, 87, 20);
+    color: aliceblue;
     border:solid 2px rgb(8, 87, 20);
     font-size: 15px;
     height: 30px;
@@ -139,7 +140,7 @@ background-color: aliceblue;
     transform: scale(1.2);
 }
 .pricebutton{
-    color: rgb(8, 87, 20);
+    color: aliceblue;
     border:solid 2px rgb(8, 87, 20);
     font-size: 15px;
     height: 30px;
@@ -176,28 +177,28 @@ border-radius: 3px solid;
 }
 #net{
     /* border: 0px  0px 5px 0px solid; */
-    border-bottom-style: dotted;
+    border-bottom-style: groove;
     border-color: black;
     padding: 1% 2% 1% 2%;
     margin: 1%;
     /* border-bottom: 5px solid; */
 }
  #cpg{
-    /* border-bottom: 5px solid; */
-    border-bottom-style: dotted;
+   
+    border-bottom-style: groove;
     border-color: black;
     padding: 1% 2% 1% 2%;
     margin: 1%;
 } 
  #java{
-    border-bottom-style: dotted;
+    border-bottom-style: groove;
     /* border-bottom: 5px solid; */
     border-color: black;
     padding: 1% 2% 1% 2%;
     margin: 1%;
 } 
 #sqlb{
-    border-bottom-style: dotted;
+    border-bottom-style: groove;
     /* border-bottom: 5px solid; */
     border-color: black;
     padding: 1% 2% 1% 2%;
@@ -218,4 +219,41 @@ border-radius: 3px solid;
 .hideicn {
 	font-size: 25px;
 	margin: 10px;
+}
+.icon{
+    padding: 1%;
+    size: 2%;
+}
+.facebook:hover{
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+}
+.whatsapp:hover{
+    -webkit-transform: rotateZ(-40deg);
+    -ms-transform: rotateZ(-40deg);
+    transform: rotateZ(-40deg);
+}
+.skype:hover{
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+}
+.mail:hover{
+    box-shadow: inset 0 0 0 25px #53a7ea;
+}
+.linkedin:hover{
+    -webkit-transform: translateX(5px);
+    transform: translateX(5px);
+}
+.twitter:hover{
+    -webkit-transform: rotateZ(-40deg);
+    -ms-transform: rotateZ(-40deg);
+    transform: rotateZ(-40deg);
+}
+.icon{
+    padding: 3%;
+    margin-top: 1%;
+    size: 200px;
+    margin-right: 5%;
 }

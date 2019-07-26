@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import {connect} from 'react-redux';
+// import {connect} from 'react-redux';
 import clear from '../images/clear.png';
 import net from '../images/net.jpg';
 import cbook from '../images/cbook.jpg';
@@ -18,33 +18,30 @@ import { SocialIcon } from 'react-social-icons';
 import browserHistory from "../Utils/browserHistory"
 
 class Dash extends Component{
- 
+  constructor(props) {
+    super(props);
+    this.state = { name:"", array:[],  count:0, };
+}
+handleChange=(event) =>{
+    this.setState({name: event.target.value});
+}
 
-
-
-    state = {
-        count:0
-    }
-    // incrementMe = () =>{
-    //     console.log("Give")
-    // }
+add=()=>{
+    this.state.arry.push(this.state.name);
+    this.setState({array:this.state.array});  
+}
+  
     incrementMe = () => {
         let newCount = this.state.count + 1
         this.setState({
           count: newCount
         })
       }
-      incrementMe1 = () => {
-        let newCount = this.state.count + 1
-        this.setState({
-          count: newCount
-        })
-      }
-   
+    
     handleSubmit4=(event)=> {
         browserHistory.push("/first");
     }
-   
+  
   
     render(){
         return(
@@ -55,7 +52,7 @@ class Dash extends Component{
                 <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>
                 <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
                 <div className="col-xs-2 col-sm-2 col-md-2 col-lg-"></div>
-               <div id="a" className="col-xs-1 col-sm-1 col-md-1 col-lg-1"><select className="languagebutton"><option value="volvo">Language</option>
+              <div id="a" className="col-xs-1 col-sm-1 col-md-1 col-lg-1"><select className="languagebutton"><option value="volvo">Language</option>
   <option >.NET</option>
   <option >C++</option>
   <option >JAVA</option>
@@ -81,22 +78,17 @@ class Dash extends Component{
                 <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"><img className="raman" src={rajaraman} alt={"rajaraman"} height="100" width="100" ></img><p className="color"><b>RajaRaman</b></p>  </div>                          
                 <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                   < div className="dashbordcontent"> <h6 > <b> .NET PROGRAMING </b></h6> 
-                  <p>A .NET Programmer is responsible for designing and developing software and web pages based on given performance requirements and design.</p>
-                  <button className="clickbutton" onClick={this.incrementMe} > Likes:{this.state.count}<img className="netbook" src={like} alt={"like"} height="30" width="30" ></img> </button><input placeholder="write your comment..."></input>
-                   </ div>
+                  <h5>{this.state.name}</h5>
+                  <input type='text' onChange={this.handleChange} placeholder="write your comment..."></input>
+                  <h5>{this.state.array}</h5>
+                  <button className="clickbutton" onClick={this.incrementMe} > Likes:{this.state.count}<img className="netbook" src={like} alt={"like"} height="30" width="30" ></img> </button>
+                  </ div>
                   <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
-                    </div>  <div className="one">  <SocialIcon url="https://twitter.com/" />
-                    <SocialIcon  url="https://www.facebook.com/" />
-                    <SocialIcon url="https://www.whatsapp.com/" />
-                    <SocialIcon  url="https://www.skype.com/" />
-                    <SocialIcon  url="https://www.email.com/" />
-                    <SocialIcon  url="http://linkedin.com/" />
+                    </div> 
                     
 
-</div>
-
-                                                 
-               </div>
+                                                
+              </div>
 
                 <div id="cpg" className="row">
                 <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>                              
@@ -104,12 +96,15 @@ class Dash extends Component{
                 <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"><img className="balu" src={balagurusamy} alt={"balagurusamy"} height="100" width="100" ></img><p className="color"><b>BalaGuruSamy</b></p> </div>                              
                 <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                 < div className="dashbordcontent"> <h6 > <b> C++ Programming </b></h6> 
-                  <p>C++ Programmer is responsible for designing and developing software and web pages based on given performance requirements and design.</p>
-                  <button className="clickbutton" onClick={this.incrementMe} > Likes:{this.state.count}<img className="netbook" src={like} alt={"like"} height="30" width="30" ></img> </button> <input  placeholder="write your comment..."></input>
-                   </ div>
+                <h5>{this.state.name}</h5>
+                  <input type='text' onChange={this.handleChange} placeholder="write your comment..."></input>
+                  <h5>{this.state.array}</h5>
+                  <button className="clickbutton" onClick={this.incrementMe} > Likes:{this.state.count}<img className="netbook" src={like} alt={"like"} height="30" width="30" ></img> </button>              
+                  </ div>
                   </div> 
                 <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>                                                     
-                </div>     
+                
+                    </div>    
                 
 
                 <div id="java" className="row">
@@ -117,22 +112,29 @@ class Dash extends Component{
                 <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2"><img className="java" src={javabook} alt={"javabook"} height="100" width="100" ></img></div>                              
                 <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"><img className="padma" src={padma} alt={"padma"} height="100" width="100" ></img><p className="color"><b>Padmareddy</b></p> </div>                              
                 <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">< div className="dashbordcontent"> <h6 > <b> JAVA PROGRAMING </b></h6> 
-                  <p>JAVA Programmer is responsible for designing and developing software and web pages based on given performance requirements and design.</p>
-                  <button className="clickbutton" onClick={this.incrementMe} > Likes:{this.state.count}<img className="netbook" src={like} alt={"like"} height="30" width="30" ></img> </button> <input placeholder="write your comment..."></input>
-                   </ div></div> 
+                <h5>{this.state.name}</h5>
+                  <input type='text' onChange={this.handleChange} placeholder="write your comment..."></input>
+                  <h5>{this.state.array}</h5>
+                  <button className="clickbutton" onClick={this.incrementMe} > Likes:{this.state.count}<img className="netbook" src={like} alt={"like"} height="30" width="30" ></img> </button>
+                  </ div>
+                  </div> 
                 <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>                                                    
-                </div>  
+                
+                    </div>  
 
                 <div id="sqlb" className="row">
                 <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>                              
                 <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2"><img className="sqlbook" src={sql} alt={"sql"} height="100" width="100" ></img></div>                              
                 <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"><img className="java1" src={java} alt={"java"} height="100" width="100" ></img><p className="color"><b>Andrew</b></p> </div>                              
                 <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6"> < div className="dashbordcontent"> <h6 > <b> SQL PROGRAMING </b></h6> 
-                  <p>SQL Programmer is responsible for designing and developing software and web pages based on given performance requirements and design.</p>
-                  <button className="clickbutton" onClick={this.incrementMe} > Likes:{this.state.count}<img className="netbook" src={like} alt={"like"} height="30" width="30" ></img> </button> <input placeholder="write your comment..."></input>
-                   </ div></div> 
+                <h5>{this.state.name}</h5>
+                  <input type='text' onChange={this.handleChange} placeholder="write your comment..."></input>
+                  <h5>{this.state.array}</h5>
+                  <button className="clickbutton" onClick={this.incrementMe} > Likes:{this.state.count}<img className="netbook" src={like} alt={"like"} height="30" width="30" ></img> </button>
+                  </ div></div> 
                 <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>                                                   
-                </div>              
+                
+                      </div>         
             </div>
 
             <div className="footer">
@@ -141,18 +143,17 @@ class Dash extends Component{
                 <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"><div className="address">
                     <div className="row">
                     <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div> 
-                    <div id="name" className="col-xs-8 col-sm-8 col-md-8 col-lg-48"><h6><b>JK TECHNOLOGIES</b></h6>
+                    <div id="name" className="col-xs-8 col-sm-8 col-md-8 col-lg-48"><h6><b>CLEAR VOICE</b></h6>
                     <p>Horizon, HIEMA Convention Center Road,Hebbal Industrial Estate 5,Mysuru-570001, Karnataka -INDIA.</p></div>                              
                     <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div> 
                     </div> </div> </div>
-                    {/* <div className="icon">
-                    <SocialIcon id="twitter" url="https://twitter.com/" />
-                    <SocialIcon id="facebook" url="https://www.facebook.com/" />
-                    <SocialIcon id="whatsapp" url="https://www.whatsapp.com/" />
-                    <SocialIcon id="skype" url="https://www.skype.com/" />
-                    <SocialIcon id="email" url="https://www.email.com/" />
-                    <SocialIcon id="linkedein" url="http://linkedin.com/" /><br/><p>Copyright @ All rights reserved</p>
-                        </div>   */}
+                    <div className="icon">  <SocialIcon className="twitter" url="https://twitter.com/" />
+                    <SocialIcon className="facebook"  url="https://www.facebook.com/" />
+                    <SocialIcon className="whatsapp"  url="https://www.whatsapp.com/" />
+                    <SocialIcon className="skype" url="https://www.skype.com/" />
+                    <SocialIcon className="email"  url="https://www.email.com/" />
+                    <SocialIcon className="linkedin"  url="http://linkedin.com/" />
+                    </div>  
                 <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>                              
                     
                 </div>
