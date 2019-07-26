@@ -175,32 +175,36 @@ border-radius: 3px solid;
     overflow: hidden;  
 }
 #net{
-    border: 5px solid;
+    /* border: 0px  0px 5px 0px solid; */
+    border-bottom-style: dotted;
     border-color: black;
     padding: 1% 2% 1% 2%;
     margin: 1%;
+    /* border-bottom: 5px solid; */
 }
  #cpg{
-    border: 5px solid;
-   
+    /* border-bottom: 5px solid; */
+    border-bottom-style: dotted;
     border-color: black;
     padding: 1% 2% 1% 2%;
     margin: 1%;
 } 
  #java{
-    border: 5px solid;
+    border-bottom-style: dotted;
+    /* border-bottom: 5px solid; */
     border-color: black;
     padding: 1% 2% 1% 2%;
     margin: 1%;
 } 
 #sqlb{
-    border: 5px solid;
+    border-bottom-style: dotted;
+    /* border-bottom: 5px solid; */
     border-color: black;
     padding: 1% 2% 1% 2%;
     margin: 1%;
 }
 .color{
-    color: aliceblue;
+ color: cornflowerblue;
 }
 /* .one {
 	display: none;
