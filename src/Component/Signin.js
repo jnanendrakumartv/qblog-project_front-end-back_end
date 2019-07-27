@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import {connect} from 'react-redux';
 import clear from '../images/clear.png';
 import {LOGIN} from '../Actions/Action';
+import {signin} from  './user';
 import '../CSS/LogIn.css';
 import tra from'../images/tra.jpg';
 import { SocialIcon } from 'react-social-icons';
@@ -51,7 +52,7 @@ class Signin extends Component{
         if(temp>1){ 
             
             this.props.LOGIN();
-            browserHistory.push('/board');
+            browserHistory.push('/books');
         }
     }
     

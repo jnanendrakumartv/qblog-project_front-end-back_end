@@ -5,6 +5,8 @@ import First from './Component/First';
 import Signup from './Component/Signup';
 import Dash from './Component/Dash';
 import Signin from './Component/Signin';
+import Books from './Component/Books';
+import Test from './Component/Test';
 
 
 
@@ -17,7 +19,9 @@ function App() {
            <Route exact path="/signup" component={Signup}></Route> 
            <Route exact path="/signin" component={Signin}></Route>
            <Route exact path="/board" component={Dash}></Route>  
-           
+           <Route exact path="/books" component={Books}></Route>
+           <Route exact path="/test" component={Test}></Route>
+
         </Switch>
       </Router>
     </div>

@@ -1,0 +1,30 @@
+.reactbook:hover{
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+}
+.reduxbook:hover{
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+}
+.noodebook:hover{
+    -webkit-transform: rotateZ(-40deg);
+    -ms-transform: rotateZ(-40deg);
+    transform: rotateZ(-40deg);
+}
+.cobolbook{
+    background: #2db34a;
+    border-radius: 6px
+    /* transition-property: background,  */
+    border-radius;
+    transition-duration: 1s;
+    transition-timing-function : linear;
+
+}
+.cobolbook:hover{
+    background: #ff7b29;
+    border-radius: 50%;
+}
+
+  

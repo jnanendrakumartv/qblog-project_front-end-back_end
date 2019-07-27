@@ -41,7 +41,9 @@ add=()=>{
     handleSubmit4=(event)=> {
         browserHistory.push("/");
     }
-  
+    handleSubmit=(event)=> {
+      browserHistory.push("/java");
+  }
   
     render(){
         return(
@@ -52,17 +54,18 @@ add=()=>{
                 <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>
                 <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
                 <div className="col-xs-2 col-sm-2 col-md-2 col-lg-"></div>
-              <div id="a" className="col-xs-1 col-sm-1 col-md-1 col-lg-1"><select className="languagebutton"><option value="volvo">Language</option>
+              <div id="a" className="col-xs-1 col-sm-1 col-md-1 col-lg-1"><select className="languagebutton"><option value="language">Language</option>
   <option >.NET</option>
   <option >C++</option>
-  <option >JAVA</option>
+  <option>Java</option>
   <option >SQL</option>
+ 
 </select>
     </div>
                 <div id="b" className="col-xs-1 col-sm-1 col-md-1 col-lg-1"><select className="authorbutton"><option value="volvo">Author</option>
   <option >Rajaraman</option>
   <option >Balgurusamy</option>
-  <option >Padmareddy</option>
+  <option value="http://www.google.com" >Padmareddy</option>
   <option >Andrew</option>
 </select></div>
                 <div id="c" className="col-xs-1 col-sm-1 col-md-1 col-lg-1"><button className="pricebutton">Price</button></div>
