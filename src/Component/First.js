@@ -8,10 +8,10 @@ import browserHistory from "../Utils/browserHistory"
 
 class First extends Component{
     handleSubmit1=(event)=> {
-        browserHistory.push("/reg");
+        browserHistory.push("/signup");
     }
     handleSubmit=(event)=>{
-        browserHistory.push("/login")
+        browserHistory.push("/signin")
     }
     render(){
         return(

@@ -1,9 +1,9 @@
 import axios from 'axios'
 
-export const createUser = newUser => {
+export const signup = newUser => {
     debugger;
 return axios
-.post('createUser', {
+.post('signup', {
 firstname: newUser.firstname1,
 lastname: newUser.lastname1,
 email: newUser.email1,
@@ -19,7 +19,7 @@ console.log(err.response.data)
 }
 
 
-export const userSignin = user => {
+export const signin = user => {
 return axios
 .post('signin', {
 email: user.email1,

@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 // import {connect} from 'react-redux';
 import clear from '../images/clear.png';
-import {createUser} from  './user';
+import {signup, signin} from  './user';
 // import {REG} from '../Actions/Action';
 import '../CSS/Reg.css';
 import tra from'../images/tra.jpg';
@@ -9,7 +9,7 @@ import { SocialIcon } from 'react-social-icons';
 import browserHistory from "../Utils/browserHistory"
 // import axios from 'axios';
 
-class Register extends Component{
+class Signup extends Component{
     constructor(props){
         super(props);
         this.state={
@@ -24,14 +24,14 @@ class Register extends Component{
         }
     }
     handleSubmit1=(e)=> {
-        browserHistory.push("/reg");
+        browserHistory.push("/signup");
     }
    
     handleSubmit5=(e)=> {
-        browserHistory.push("/login");
+        browserHistory.push("/signin");
     }
     handleSubmit4=(e)=> {
-        browserHistory.push("/first");
+        browserHistory.push("/");
     }
     handleChange=(e)=>{
         this.setState({[e.target.name]:e.target.value});
@@ -44,20 +44,20 @@ class Register extends Component{
             firstname1:this.state.firstname,
             lastname1:this.state.lastname,
             email1:this.state.email,
-            password1:this.state.password,
-            mobile1:this.state.mobile 
+            password1:this.state.password
+            
         }
 
         console.log(reqobj);
 
 
 
-        createUser (reqobj).then(res => {
-        this.props.history.push('/login');
+        signup (reqobj).then(res => {
+        this.props.history.push('/signin');
         })
-        // userSignin (reqobj).then(res => {
-        //     this.props.history.push('/board');
-        // })
+        signin (reqobj).then(res => {
+            this.props.history.push('/board');
+        })
         .catch (res=> {
             prompt("sucessfully")
         })
@@ -135,7 +135,7 @@ class Register extends Component{
                    <p className='red'>{this.state.passwordError}</p>
                    {/* <lable className="label">Conform Password</lable><br/>   
                    <input className="input_box" placeholder="coform password"></input><br/>  */}
-                   <button className="submitbutton" onClick={this.handleSubmit}><b>Submit</b></button><a id="link" href="/login"><b>Allready Have an Account</b></a>            
+                   <button className="submitbutton" onClick={this.handleSubmit}><b>Submit</b></button><a id="link" href="/signin"><b>Allready Have an Account</b></a>            
                    </div>        
                     </div> <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>                             
                     </div>                
@@ -170,4 +170,4 @@ class Register extends Component{
 //     const {regmsg}=state.Register_reducer;
 //     return {regmsg};
 // };
-export default Register;
+export default Signup;

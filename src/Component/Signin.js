@@ -7,7 +7,7 @@ import tra from'../images/tra.jpg';
 import { SocialIcon } from 'react-social-icons';
 import browserHistory from "../Utils/browserHistory"
 
-class LogIn extends Component{
+class Signin extends Component{
 
     constructor(props){
         super(props);
@@ -19,13 +19,13 @@ class LogIn extends Component{
         }
     }
     handleSubmit1=(event)=> {
-        browserHistory.push("/reg");
+        browserHistory.push("/signup");
     }
     handleSubmit5=(event)=>{
-        browserHistory.push("/login")
+        browserHistory.push("/signin")
     }
     handleSubmit4=(event)=> {
-        browserHistory.push("/first");
+        browserHistory.push("/");
     }
     handleChange=(e)=>{
         this.setState({[e.target.name]:e.target.value});
@@ -118,4 +118,4 @@ const mapStateToprops=(state)=>{
     const {regmsg}=state.Register_reducer;
     return {loginmsg,regmsg};
 };
-export default connect(mapStateToprops , {LOGIN}) (LogIn);
+export default connect(mapStateToprops , {LOGIN}) (Signin);

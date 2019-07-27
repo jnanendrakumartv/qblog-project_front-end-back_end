@@ -39,7 +39,7 @@ add=()=>{
       }
     
     handleSubmit4=(event)=> {
-        browserHistory.push("/first");
+        browserHistory.push("/");
     }
   
   
