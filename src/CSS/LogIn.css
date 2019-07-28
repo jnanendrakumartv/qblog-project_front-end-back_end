@@ -47,15 +47,10 @@
    height: 750px;
 }
 
-.homeimage{
-    width: 100%;
-    height: 2000%;
-    padding: 1% 8% 1% 8%;
-}
 #h3{
     margin: 3%;
 }
-.footer{
+.footer1{
     width: 100%;
     display: none;
     margin: auto;
@@ -63,7 +58,7 @@
     display: block;
     text-align: center;
     background-color: black;
-    height: 80px;
+    height: 150px;
 }
 .address{
     padding: 3%;
@@ -112,7 +107,14 @@
     width: 100%;
     height: 100%;
 }
-
+.regimage:hover{
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+}
+#copy{
+  color: white;
+}
 .signupbody{
     margin: 3% 10% 5% 5%;
 }

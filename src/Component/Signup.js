@@ -144,7 +144,7 @@ class Signup extends Component{
                     </div>                           
                     </div>                
             </div>
-            <div className="footer"> <div className="element">
+            <div className="footer1"> <div className="element">
                 <div className="row">
                 <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>                              
                 <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"><div className="address">
@@ -160,7 +160,7 @@ class Signup extends Component{
                     <SocialIcon id="whatsapp" url="https://www.whatsapp.com/" />
                     <SocialIcon id="skype" url="https://www.skype.com/" />
                     <SocialIcon id="email" url="https://www.email.com/" />
-                    <SocialIcon id="linkedein" url="http://linkedin.com/" /><br/><p>Copyright @ All rights reserved</p>
+                    <SocialIcon id="linkedein" url="http://linkedin.com/" /><br/><p id="copy">Copyright @ All rights reserved</p>
                         </div>  
                 <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>                              
                 </div>   
