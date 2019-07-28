@@ -59,7 +59,7 @@ class Signin extends Component{
     render(){
         return(
             <div >
-                <div className="Header">
+                <div className="Header"><div className="element">
                 <div className="row">
                 <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"><img className="logo" src={clear} alt={"clear"} height="50" width="50" onClick={this.handleSubmit4}></img><h4 id="h4"><i>CLEARVOICE</i></h4> </div>
                 <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8"></div>
@@ -67,8 +67,9 @@ class Signin extends Component{
                 <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"><button id="signin" onClick={this.handleSubmit5}>SignIn</button></div>
                 <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
                 </div>
+                </div>
             </div>
-            <div className="body">
+            <div className="quotes"><div class="box box2">
                 <div className="row">
                 <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>                              
                 <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"><div ><img className="regimage" src={tra} alt={"tra"} ></img> </div></div>                              
@@ -76,6 +77,7 @@ class Signin extends Component{
                 <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                 <div className="signinbody"> <h2 className="red">{this.props.loginmsg}</h2>
                 <h1 className="signintext">Sign In</h1><br/>
+                   <div className="signinbox1">
                         <label className="label" id='uname'>Email</label><br/>
                           <input className="input_box " placeholder="Email" type='text' name='email' onChange={this.handleChange}></input><br/>
                           <p className='red'>{this.state.mail}</p>
@@ -83,12 +85,13 @@ class Signin extends Component{
                           <input className="input_box " placeholder="Password" type='password' name='password' onChange={this.handleChange}></input><br/>
                           <p className='red'>{this.state.pwd}</p>
                           <button className="submitbutton" onClick={this.signin}><b>Submit</b></button>
-                  
+                      </div>
                    </div>        
                     </div> <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>                             
-                    </div>                
-            </div>
-            <div className="footer">
+                    </div> 
+                    </div>               
+                 </div>
+            <div className="footer"><div className="element">
                 <div className="row">
                 <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>                              
                 <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"><div className="address">
@@ -107,7 +110,7 @@ class Signin extends Component{
                     <SocialIcon id="linkedein" url="http://linkedin.com/" /><br/><p>Copyright @ All rights reserved</p>
                         </div>  
                 <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>                              
-                    
+                    </div>
                 </div>
             </div>
             </div>

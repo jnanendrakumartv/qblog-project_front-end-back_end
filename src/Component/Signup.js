@@ -104,7 +104,7 @@ class Signup extends Component{
     render(){
         return(
             <div >
-                <div className="Header">
+                <div className="Header"><div className="element">
                 <div className="row">
                 <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"><img className="logo" src={clear} alt={"clear"} height="50" width="50" onClick={this.handleSubmit4}></img><h4 id="h4"><i>CLEARVOICE</i></h4></div>
                 <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8"></div>
@@ -112,15 +112,17 @@ class Signup extends Component{
                 <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"><button id="signin" onClick={this.handleSubmit5}>SignIn</button></div>
                 <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
                 </div>
+                </div>
             </div>
-            <div className="body">
+            <div className="quotes"><div class="box box2">
                 <div className="row">
                 <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>                              
                 <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"><div ><img className="regimage" src={tra} alt={"tra"} ></img> </div></div>                              
-                <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>              
-                <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>              
+                <div className="col-xs-5 col-sm-5 col-md-5 col-lg-5">
                 <div className="signupbody"><h2 className='red'>{this.props.regmsg}</h2>
                   <h1 className="signuptext"><b>Sign Up</b></h1>
+                  <div className="middlebox">
                    <lable className="label">First Name</lable><br/>   
                    <input className="input_box" placeholder="first name" type='text' name='firstname' onChange={this.handleChange}></input><br/> 
                    <p className='red'>{this.state.fnameError}</p>
@@ -136,11 +138,13 @@ class Signup extends Component{
                    {/* <lable className="label">Conform Password</lable><br/>   
                    <input className="input_box" placeholder="coform password"></input><br/>  */}
                    <button className="submitbutton" onClick={this.handleSubmit}><b>Submit</b></button><a id="link" href="/signin"><b>Allready Have an Account</b></a>            
+                   </div>
                    </div>        
-                    </div> <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>                             
+                    </div> <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>  
+                    </div>                           
                     </div>                
             </div>
-            <div className="footer">
+            <div className="footer"> <div className="element">
                 <div className="row">
                 <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>                              
                 <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"><div className="address">
@@ -159,7 +163,7 @@ class Signup extends Component{
                     <SocialIcon id="linkedein" url="http://linkedin.com/" /><br/><p>Copyright @ All rights reserved</p>
                         </div>  
                 <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>                              
-                    
+                </div>   
                 </div>
             </div>
             </div>

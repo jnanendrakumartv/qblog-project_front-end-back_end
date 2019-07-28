@@ -16,16 +16,16 @@ class First extends Component{
     render(){
         return(
             <div >
-                <div className="Header">
+                <div className="Header"> <div className="element">
                 <div className="row">
                 <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"><img className="logo" src={clear} alt={"clear"} height="50" width="50" onClick={this.handleSubmit4}></img><h4 id="h4"><i>CLEARVOICE</i></h4> </div>
                 <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8"></div>
                 <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"><button id="signup" onClick={this.handleSubmit1}>Sign Up</button></div>
                 <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"><button id="signin" onClick={this.handleSubmit}>SignIn</button></div>
                 <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
-                </div>
+                </div> </div>
             </div>
-            <div className="body">
+            <div className="quotes"> <div class="box box2">
                 <div className="row">
                 <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>
                 <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"><h3 id="h3">Publish Your passions, your way</h3><h4 id="h5">Create a unique and beautiful blog.</h4>
@@ -38,8 +38,9 @@ class First extends Component{
                 </div>               
                 <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>                              
                 </div>
+               </div>
             </div>
-            <div className="footer">
+            <div className="footer1"><div className="element">
                 <div className="row">
                 <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>                              
                 <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"><div className="address">
@@ -60,7 +61,7 @@ class First extends Component{
                 <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>                              
                     
                 </div>
-            </div>
+            </div></div>
             </div>
         )
     }
