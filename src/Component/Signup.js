@@ -49,25 +49,20 @@ class Signup extends Component{
         }
 
         console.log(reqobj);
-
-
-
         signup (reqobj).then(res => {
         this.props.history.push('/signin');
         })
-        signin (reqobj).then(res => {
-            this.props.history.push('/board');
-        })
+
+        // signin (reqobj).then(res => {
+        //     this.props.history.push('/test');
+        // })
         .catch (res=> {
             prompt("sucessfully")
         })
-
-
             let reg_user=/^[A-Za-z0-9]{2,10}$/;
             let reg_pwd=/^[@#*&_%$!][A-Za-z0-9]{6,13}$/;
             let reg_email=/^[a-zA-Z0-9]+@+[a-zA-Z0-9]+.+[A-z]/;
-           
-       
+
        if(!this.state.firstname) this.setState({fnameError:'Firstname is required'});
         else if(!reg_user.test(this.state.firstname)) this.setState({fnameError:'Invalid Firstname'});
         else{
@@ -96,8 +91,8 @@ class Signup extends Component{
         }
         
         if(t>4) {
-            // this.props.REG();
-            // browserHistory.push('/');
+            this.props.REG();
+            browserHistory.push('/');
             
         }
     }  
@@ -159,7 +154,7 @@ class Signup extends Component{
                     <SocialIcon id="facebook" url="https://www.facebook.com/" />
                     <SocialIcon id="whatsapp" url="https://www.whatsapp.com/" />
                     <SocialIcon id="skype" url="https://www.skype.com/" />
-                    <SocialIcon id="email" url="https://www.email.com/" />
+                    <SocialIcon id="email" url="https://www.instagram.com/" />
                     <SocialIcon id="linkedein" url="http://linkedin.com/" /><br/><p id="copy">Copyright @ All rights reserved</p>
                         </div>  
                 <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>                              

@@ -91,7 +91,7 @@ add=()=>{
                     <SocialIcon className="facebook"  url="https://www.facebook.com/" />
                     <SocialIcon className="whatsapp"  url="https://www.whatsapp.com/" />
                     <SocialIcon className="skype" url="https://www.skype.com/" />
-                    <SocialIcon className="email"  url="https://www.email.com/" />
+                    <SocialIcon className="email"  url="https://www.instagram.com/" />
                     <SocialIcon className="linkedin"  url="http://linkedin.com/" />
                     </div>  
                 <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>                                

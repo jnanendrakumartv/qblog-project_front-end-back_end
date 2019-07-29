@@ -106,7 +106,7 @@ class Signin extends Component{
                     <SocialIcon id="facebook" url="https://www.facebook.com/" />
                     <SocialIcon id="whatsapp" url="https://www.whatsapp.com/" />
                     <SocialIcon id="skype" url="https://www.skype.com/" />
-                    <SocialIcon id="email" url="https://www.email.com/" />
+                    <SocialIcon id="email" url="https://www.instagram.com/" />
                     <SocialIcon id="linkedein" url="http://linkedin.com/" /><br/><p id="copy">Copyright @ All rights reserved</p>
                         </div>  
                 <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>                              

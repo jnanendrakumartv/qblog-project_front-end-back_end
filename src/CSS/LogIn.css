@@ -264,14 +264,14 @@
     }
   }
   .signinbox1{
-    border: 15px solid #53a7ea;
+    /* border: 15px solid #53a7ea; */
     /* margin: 2px; */
     padding: 2px;
     animation: pulse 5s infinite;
   }
   .input_box {
     margin: 2px;
-    opacity: .6%;
+    /* opacity: .6%; */
     color: white;
       width: 100%;
       margin-bottom: 10px;

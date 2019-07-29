@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export const signup = newUser => {
-    debugger;
+    // debugger;
 return axios
 .post('signup', {
 firstname: newUser.firstname1,

@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import {connect} from 'react-redux';
+// import {connect} from 'react-redux';
 import clear from '../images/clear.png';
 import '../CSS/First.css';
 import tra from'../images/tra.jpg';
@@ -28,7 +28,7 @@ class First extends Component{
             <div className="quotes"> <div class="box box2">
                 <div className="row">
                 <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>
-                <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"><h3 id="h3"><b>Publish Your passions, your way</b></h3><h4 id="h5"><b>Create a unique and beautiful blog.</b></h4>
+                <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"><h4 id="h3"><b>Publish Your passions, your way</b></h4><h5 id="h5"><b>Create a unique and beautiful blog.</b></h5>
                     <div className="row">
                         <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3"></div><button className="createyourblogbutton" onClick={this.handleSubmit1}><b>Create Your Blog</b></button>
                         <div className="col-xs-5 col-sm-5 col-md-5 col-lg-5"></div>
@@ -55,7 +55,7 @@ class First extends Component{
                     <SocialIcon id="facebook" url="https://www.facebook.com/" />
                     <SocialIcon id="whatsapp" url="https://www.whatsapp.com/" />
                     <SocialIcon id="skype" url="https://www.skype.com/" />
-                    <SocialIcon id="email" url="https://www.email.com/" />
+                    <SocialIcon id="email" url="https://www.instagram.com/" />
                     <SocialIcon id="linkedein" url="http://linkedin.com/" /><br/><p id="copy">Copyright @ All rights reserved</p>
                         </div>  
                 <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>                              

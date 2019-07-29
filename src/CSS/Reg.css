@@ -311,7 +311,7 @@
     }
   }
   .middlebox{
-    border: 15px solid #53a7ea;
+    /* border: 5px solid #53a7ea; */
     margin-top: 30px;
     margin-bottom: 50px;
     /* margin: 10px; */
