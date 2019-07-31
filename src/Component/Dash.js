@@ -25,6 +25,12 @@ class Dash extends Component{
 handleChange=(event) =>{
     this.setState({name: event.target.value});
 }
+// console.log(reqobj)
+// getUsers (reqobj).then (res =>{
+//     this.props.history.push('/getUsers');
+// })
+
+
 
 add=()=>{
     this.state.arry.push(this.state.name);
@@ -41,8 +47,17 @@ add=()=>{
     handleSubmit4=(event)=> {
         browserHistory.push("/");
     }
+    handleSubmit50=(event)=> {
+      browserHistory.push("/getUsers");
+  }
+
     handleSubmit=(event)=> {
       browserHistory.push("/java");
+      
+//       console.log(reqobj)
+// getUsers (reqobj).then (res =>{
+//     this.props.history.push('/getUsers');
+// })
   }
   
     render(){
@@ -55,7 +70,7 @@ add=()=>{
                 <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
                 <div className="col-xs-2 col-sm-2 col-md-2 col-lg-"></div>
               <div id="a" className="col-xs-1 col-sm-1 col-md-1 col-lg-1"><select className="languagebutton"><option value="language">Language</option>
-  <option >.NET</option>
+  <option value="5d411368e098560eaee0c3cd" >.NET</option>
   <option >C++</option>
   <option>Java</option>
   <option >SQL</option>
@@ -65,7 +80,7 @@ add=()=>{
                 <div id="b" className="col-xs-1 col-sm-1 col-md-1 col-lg-1"><select className="authorbutton"><option value="volvo">Author</option>
   <option >Rajaraman</option>
   <option >Balgurusamy</option>
-  <option value="http://www.google.com" >Padmareddy</option>
+  <option value="" >Padmareddy</option>
   <option >Andrew</option>
 </select></div>
                 <div id="c" className="col-xs-1 col-sm-1 col-md-1 col-lg-1"><button className="pricebutton">Price</button></div>
@@ -80,11 +95,12 @@ add=()=>{
                 <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2"><img className="netbook" src={net} alt={"net"} height="100" width="100" ></img></div>                              
                 <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"><img className="raman" src={rajaraman} alt={"rajaraman"} height="100" width="100" ></img><p className="color"><b>RajaRaman</b></p>  </div>                          
                 <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                  < div className="dashbordcontent"> <h6 > <b> .NET PROGRAMING </b></h6> 
+                  < div className="dashbordcontent"> <h6 > <b> .NET PROGRAMING </b></h6> <button value="5d411368e098560eaee0c3cd" onClick={this.handleSubmit50} >Net</button>
                   <h5>{this.state.name}</h5>
                   <input type='text' onChange={this.handleChange} placeholder="write your comment..."></input>
                   <h5>{this.state.array}</h5>
                   <button className="clickbutton" onClick={this.incrementMe} > Likes:{this.state.count}<img className="netbook" src={like} alt={"like"} height="30" width="30" ></img> </button>
+                  <button>.Net</button>
                   </ div>
                   <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
                     </div> 

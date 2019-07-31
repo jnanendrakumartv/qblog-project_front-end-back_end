@@ -80,7 +80,7 @@ handleSubmit40=(e)=> {
                 <div className="col-xs-2 col-sm-2 col-md-2 col-lg-"></div>
               <div id="a" className="col-xs-1 col-sm-1 col-md-1 col-lg-1">
                 <select className="languagebutton"><option value="language">Language</option>
-                    <option href="/net" >.NET </option>
+                    <option >.NET </option>
                     <option >C++</option>
                     <option>Java</option>
                     <option >SQL</option>

@@ -52,10 +52,15 @@ class Signup extends Component{
         signup (reqobj).then(res => {
         this.props.history.push('/signin');
         })
-
-        // signin (reqobj).then(res => {
-        //     this.props.history.push('/test');
+         
+        // console.log(reqobj)
+        // getUsers (reqobj).then (res =>{
+        //     this.props.history.push('/getUsers');
         // })
+
+        signin (reqobj).then(res => {
+            this.props.history.push('/test');
+        })
         .catch (res=> {
             prompt("sucessfully")
         })

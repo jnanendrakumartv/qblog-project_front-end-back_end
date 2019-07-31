@@ -34,3 +34,19 @@ return res.data
 console.log(err)
 })
 }
+
+
+export const getUsers = user1 => {
+    return axios
+    .post('getUser', {
+        email:user1.emailId,
+    })
+    .then(res => {
+        console.log('getUsers')
+        localStorage.setItem('usertoken', res.data)
+        return res.data
+    })
+    .catch(err =>{
+        console.log(err)
+    })
+}
