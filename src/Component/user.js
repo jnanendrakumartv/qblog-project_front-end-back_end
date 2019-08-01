@@ -1,5 +1,4 @@
 import axios from 'axios'
-
 export const signup = newUser => {
     // debugger;
 return axios
@@ -36,17 +35,21 @@ console.log(err)
 }
 
 
-export const getUsers = user1 => {
-    return axios
-    .post('getUser', {
-        email:user1.emailId,
-    })
-    .then(res => {
-        console.log('getUsers')
-        localStorage.setItem('usertoken', res.data)
-        return res.data
-    })
-    .catch(err =>{
-        console.log(err)
-    })
-}
+// export const details = user1 => {
+//     return axios
+//     .get('details',{
+//        id: taskId.id, 
+//     })
+//     .then(res => {
+//         console/log('details')
+//         localStorage.setIten('usertoken', res.data)
+//         return res.data
+//     })
+//     .catch(err => {
+//         console.log(err)
+//     })
+// }
+
+
+
+
