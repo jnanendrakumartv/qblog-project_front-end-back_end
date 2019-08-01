@@ -14,7 +14,7 @@
     font-size: 15px;
     /* background-color: rgb(31, 32, 33); */
     border-radius: 3px solid;
-    width: 100%;
+    width: 90%;
     margin: 40%;
    
 }
@@ -31,7 +31,7 @@
     font-size: 15px;
     /* background-color: rgb(31, 32, 33); */
     border-radius: 3px solid;
-    width: 100%;
+    width: 90%;
     margin: 40%;
 }
 #signin:hover{
@@ -321,4 +321,7 @@
   }
   #copy{
     color: white;
+  }
+  .logo{
+    margin-left: 5%;
   }

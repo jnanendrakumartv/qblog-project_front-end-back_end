@@ -35,21 +35,4 @@ console.log(err)
 }
 
 
-// export const details = user1 => {
-//     return axios
-//     .get('details',{
-//        id: taskId.id, 
-//     })
-//     .then(res => {
-//         console/log('details')
-//         localStorage.setIten('usertoken', res.data)
-//         return res.data
-//     })
-//     .catch(err => {
-//         console.log(err)
-//     })
-// }
-
-
-
 

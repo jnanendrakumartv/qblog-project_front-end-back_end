@@ -8,14 +8,25 @@ import rajaraman from '../images/rajaraman.jpg';
 import '../CSS/Text.css';
 import { SocialIcon } from 'react-social-icons';
 import browserHistory from "../Utils/browserHistory"
+import axios from 'axios';
 
 
 
 class CNet extends Component{
     constructor(props) {
         super(props);
-        this.state = { name:"", array:[],  count:0, };
+        this.state = { name:"", array:[],  count:0, Users: [] };
     }
+
+    componentDidMount(){
+        axios.get('http://localhost:9000/details/5d427c66434c440bc15031d0')
+        
+        .then(res => {
+     
+        this.setState({Users: res.data});
+        console.log(this.state.Users);
+        });
+        }
   
 handleChange=(event) =>{
     this.setState({name: event.target.value});
@@ -65,7 +76,12 @@ add=()=>{
                     <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"> </div>                          
                     <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"> </div>                          
                     <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"> <img className="cbook" src={rajaraman} alt={"rajaraman"} height="200" width="200" ></img>
-                     <h3 > <b>C# .NET PROGRAMING </b></h3> <h4><i>C# Net Object Oriented Programing Language</i></h4> <h4><b>8Th Edition</b></h4> <h5>Rs: 650/-</h5>
+                    
+                    {/* <button>click</button> */}
+           {this.state.Users.map(user =>{ return (<h3>{user.author}</h3>)})}
+                    
+                 
+                     {/* <h3 > <b>C# .NET PROGRAMING </b></h3> <h4><i>C# Net Object Oriented Programing Language</i></h4> <h4><b>8Th Edition</b></h4> <h5>Rs: 650/-</h5> */}
                   <h5>{this.state.name}</h5>
                   <input type='text' onChange={this.handleChange} placeholder="write your comment..."></input>
                   <h5>{this.state.array}</h5>
