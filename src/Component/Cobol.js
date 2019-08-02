@@ -8,14 +8,24 @@ import cobal1 from '../images/cobal1.jpg';
 import '../CSS/Text.css';
 import { SocialIcon } from 'react-social-icons';
 import browserHistory from "../Utils/browserHistory"
-
+import axios from 'axios';
 
 
 class Cobol extends Component{
     constructor(props) {
         super(props);
-        this.state = { name:"", array:[],  count:0, };
+        this.state = { name:"", array:[],  count:0,Users: [] };
     }
+    componentDidMount(){
+        axios.get('http://localhost:9000/details')
+        
+        .then(res => {
+     
+        this.setState({Users: res.data});
+        console.log(this.state.Users);
+        });
+        }
+
   
 handleChange=(event) =>{
     this.setState({name: event.target.value});
@@ -45,8 +55,8 @@ add=()=>{
             <div >
                 <div className="Header"> <div className="element">
                 <div className="row">
-                <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"><img className="logo" src={clear} alt={"clear"} height="50" width="50" onClick={this.handleSubmit1}></img><h4 id="h4"><i>CLEARVOICE</i></h4></div> 
-                <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>
+                <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2"><img className="logo" src={clear} alt={"clear"} height="50" width="50" onClick={this.handleSubmit1}></img><h4 id="h4"><i>CLEARVOICE</i></h4></div> 
+                <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
                 <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
                 <div className="col-xs-2 col-sm-2 col-md-2 col-lg-"></div>
                 <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"> </div>
@@ -64,7 +74,20 @@ add=()=>{
                     <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"> </div>                          
                     <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"> </div>                          
                     <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"> <img className="cbook" src={cobal1} alt={"cobal1"} height="200" width="200" ></img>
-                     <h3 > <b>COBOL PROGRAMING </b></h3> <h4><i>Cobol Object Oriented Programing Language</i></h4> <h4><b>11Th Edition</b></h4> <h5>Rs: 350/-</h5>
+                         {this.state.Users.map(category => {
+                          if(category.author==='Thane Hebbeli') {
+                          return (
+                          <div>
+                            <p>{category.author}</p> 
+                             <p>{category.books}</p> 
+                             <p>{category.price}</p>
+                             <p>{category.edition}</p>
+                             <p>{category.published}</p>
+                         </div>
+                             )}
+                             })}
+
+                     {/* <h3 > <b>COBOL PROGRAMING </b></h3> <h4><i>Cobol Object Oriented Programing Language</i></h4> <h4><b>11Th Edition</b></h4> <h5>Rs: 350/-</h5> */}
                   <h5>{this.state.name}</h5>
                   <input type='text' onChange={this.handleChange} placeholder="write your comment..."></input>
                   <h5>{this.state.array}</h5>

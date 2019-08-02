@@ -8,14 +8,23 @@ import rc1 from '../images/rc1.jpg';
 import '../CSS/Text.css';
 import { SocialIcon } from 'react-social-icons';
 import browserHistory from "../Utils/browserHistory"
-
+import axios from 'axios';
 
 
 class ReactJs extends Component{
     constructor(props) {
         super(props);
-        this.state = { name:"", array:[],  count:0, };
+        this.state = { name:"", array:[],  count:0, Users: [] };
     }
+    componentDidMount(){
+        axios.get('http://localhost:9000/details')
+        
+        .then(res => {
+     
+        this.setState({Users: res.data});
+        console.log(this.state.Users);
+        });
+        }
   
 handleChange=(event) =>{
     this.setState({name: event.target.value});
@@ -44,8 +53,8 @@ add=()=>{
             <div >
                 <div className="Header"> <div className="element">
                 <div className="row">
-                <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"><img className="logo" src={clear} alt={"clear"} height="50" width="50" onClick={this.handleSubmit1}></img><h4 id="h4"><i>CLEARVOICE</i></h4></div> 
-                <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>
+                <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2"><img className="logo" src={clear} alt={"clear"} height="50" width="50" onClick={this.handleSubmit1}></img><h4 id="h4"><i>CLEARVOICE</i></h4></div> 
+                <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
                 <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
                 <div className="col-xs-2 col-sm-2 col-md-2 col-lg-"></div>
                 <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"> </div>
@@ -63,7 +72,20 @@ add=()=>{
                     <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"> </div>                          
                     <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"> </div>                          
                     <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"> <img className="cbook" src={rc1} alt={"rc1"} height="200" width="200" ></img>
-                     <h3 > <b>REACT JS Essential </b></h3> <h4><i>The Complete Reference ReactJs</i></h4> <h4><b>3rd Edition</b></h4> <h5>Rs: 750/-</h5>
+                    { this.state.Users.map(category => {
+                          if(category.author==='Artemij')
+                             return (
+                                 <div>
+                                    <p>{category.author}</p> 
+                                    <p>{category.books}</p> 
+                                    <p>{category.price}</p>
+                                    <p>{category.edition}</p>
+                                    <p>{category.published}</p>
+                                 </div>
+                                    )
+                                  })}
+                     
+                     {/* <h3 > <b>REACT JS Essential </b></h3> <h4><i>The Complete Reference ReactJs</i></h4> <h4><b>3rd Edition</b></h4> <h5>Rs: 750/-</h5> */}
                   <h5>{this.state.name}</h5>
                   <input type='text' onChange={this.handleChange} placeholder="write your comment..."></input>
                   <h5>{this.state.array}</h5>

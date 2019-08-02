@@ -20,7 +20,7 @@ import browserHistory from "../Utils/browserHistory"
 class Dash extends Component{
   constructor(props) {
     super(props);
-    this.state = { name:"", array:[],  count:0, };
+    this.state = { name:"", array:[],  count:0, Users: [] };
 }
 handleChange=(event) =>{
     this.setState({name: event.target.value});
@@ -65,8 +65,8 @@ add=()=>{
             <div >
                 <div className="Header">
                 <div className="row">
-                <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"><img className="logo" src={clear} alt={"clear"} height="50" width="50" onClick={this.handleSubmit4}></img><h4 id="h4"><i>CLEARVOICE</i></h4></div> 
-                <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>
+                <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2"><img className="logo" src={clear} alt={"clear"} height="50" width="50" onClick={this.handleSubmit4}></img><h4 id="h4"><i>CLEARVOICE</i></h4></div> 
+                <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
                 <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
                 <div className="col-xs-2 col-sm-2 col-md-2 col-lg-"></div>
               <div id="a" className="col-xs-1 col-sm-1 col-md-1 col-lg-1"><select className="languagebutton"><option value="language">Language</option>
