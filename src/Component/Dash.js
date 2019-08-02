@@ -20,7 +20,7 @@ import browserHistory from "../Utils/browserHistory"
 class Dash extends Component{
   constructor(props) {
     super(props);
-    this.state = { name:"", array:[],  count:0, Users: [] };
+    this.state = { name:"", array:[],  count:0,  };
 }
 handleChange=(event) =>{
     this.setState({name: event.target.value});

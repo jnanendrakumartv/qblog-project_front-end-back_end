@@ -1,5 +1,4 @@
 import React,{Component} from 'react';
-// import {connect} from 'react-redux';
 import clear from '../images/clear.png';
 import {signup, signin} from  './user';
 // import {REG} from '../Actions/Action';
@@ -7,7 +6,6 @@ import '../CSS/Reg.css';
 import tra from'../images/tra.jpg';
 import { SocialIcon } from 'react-social-icons';
 import browserHistory from "../Utils/browserHistory"
-// import axios from 'axios';
 
 class Signup extends Component{
     constructor(props){
@@ -37,7 +35,7 @@ class Signup extends Component{
         this.setState({[e.target.name]:e.target.value});
     }
      handleSubmit=(e)=>{
-        //  debugger
+       
         e.preventDefault();
         let t=0;
         let reqobj={
@@ -53,17 +51,13 @@ class Signup extends Component{
         this.props.history.push('/signin');
         })
          
-        // console.log(reqobj)
-        // getUsers (reqobj).then (res =>{
-        //     this.props.history.push('/getUsers');
-        // })
 
-        signin (reqobj).then(res => {
-            this.props.history.push('/test');
-        })
-        .catch (res=> {
-            prompt("sucessfully")
-        })
+        // signin (reqobj).then(res => {
+        //     this.props.history.push('/test');
+        // })
+        // .catch (res=> {
+        //     prompt("sucessfully")
+        // })
             let reg_user=/^[A-Za-z0-9]{2,10}$/;
             let reg_pwd=/^[@#*&_%$!][A-Za-z0-9]{6,13}$/;
             let reg_email=/^[a-zA-Z0-9]+@+[a-zA-Z0-9]+.+[A-z]/;
@@ -135,8 +129,6 @@ class Signup extends Component{
                    <lable className="label">Password</lable><br/>   
                    <input className="input_box" placeholder="password" type='password' name='password' onChange={this.handleChange}></input><br/> 
                    <p className='red'>{this.state.passwordError}</p>
-                   {/* <lable className="label">Conform Password</lable><br/>   
-                   <input className="input_box" placeholder="coform password"></input><br/>  */}
                    <button className="submitbutton" onClick={this.handleSubmit}><b>Submit</b></button><a id="link" href="/signin"><b>Allready Have an Account</b></a>            
                    </div>
                    </div>        
@@ -170,8 +162,5 @@ class Signup extends Component{
         )
     }
 }
-// const mapStateToprops=(state)=>{
-//     const {regmsg}=state.Register_reducer;
-//     return {regmsg};
-// };
+
 export default Signup;

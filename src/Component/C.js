@@ -88,9 +88,7 @@ add=()=>{
                                             <p>{category.price}</p>
                                             <p>{category.edition}</p>
                                             <p>{category.published}</p>
-
                                             </div>
-
                                             )}
                                             })}
                     
