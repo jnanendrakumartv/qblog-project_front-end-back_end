@@ -93,7 +93,6 @@ add=()=>{
                                             })}
                     
                     
-                     {/* <h3 > <b>C++ PROGRAMING </b></h3> <h4><i>Object Oriented Programing Language</i></h4> <h4><b>4Th Edition</b></h4> <h5>Rs: 450/-</h5> */}
                   <h5>{this.state.name}</h5>
                   <input type='text' onChange={this.handleChange} placeholder="write your comment..."></input>
                   <h5>{this.state.array}</h5>
