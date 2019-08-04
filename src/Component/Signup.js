@@ -145,7 +145,7 @@ class Signup extends Component {
                    <lable className="label">Password</lable><br/>   
                    <input className="input_box" placeholder="password" type='password' name='password' onChange={this.handleChange}></input><br/> 
                    <p className='red'>{this.state.passwordError}</p>
-                   <button className="submitbutton" onClick={this.handleSubmit} ><b>Submit</b></button><a id="link" href="/signin"><b>Allready Have an Account</b></a>            
+                   <button className="submitbutton" onClick={this.handleSubmit} ><b>Submit</b></button><a id="link" href="/signin"><b>Already Have an Account</b></a>            
                    </div>
                    </div>        
                     </div> <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>  
