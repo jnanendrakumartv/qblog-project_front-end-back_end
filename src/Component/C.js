@@ -2,7 +2,6 @@
 import React,{Component} from 'react';
 import clear from '../images/clear.png';
 import cbook from '../images/cbook.jpg';
-import home from '../images/home.png';
 import likes from '../images/likes.png';
 import balagurusamy from '../images/balagurusamy.jpg';
 // import '../CSS/Test.css';
@@ -66,7 +65,7 @@ add=()=>{
                 <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"> </div>
                 <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
                 <div  className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
-                <div  className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div><img className="home" src={home} alt={"home"} height="30" width="30" onClick={this.handleSubmit4}></img>
+                <div  className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
                 </div></div>
             </div>
 
