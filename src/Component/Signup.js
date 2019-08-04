@@ -1,13 +1,16 @@
 import React,{Component} from 'react';
 import clear from '../images/clear.png';
-import {signup, signin} from  './user';
+import axios from 'axios';
+import api from '../Api/index';
+import { userSignup, userSignin} from  './user';
 // import {REG} from '../Actions/Action';
 import '../CSS/Reg.css';
 import tra from'../images/tra.jpg';
 import { SocialIcon } from 'react-social-icons';
 import browserHistory from "../Utils/browserHistory"
 
-class Signup extends Component{
+
+class Signup extends Component {
     constructor(props){
         super(props);
         this.state={
@@ -18,7 +21,7 @@ class Signup extends Component{
             fnameError:'',
             lnameError:'',
             emailError:'',
-            passwordError:''
+            passwordError:'',
         }
     }
     handleSubmit1=(e)=> {
@@ -31,42 +34,21 @@ class Signup extends Component{
     handleSubmit4=(e)=> {
         browserHistory.push("/");
     }
-    handleChange=(e)=>{
-        this.setState({[e.target.name]:e.target.value});
-    }
-     handleSubmit=(e)=>{
-       
-        e.preventDefault();
+    handleSubmit = async () => {
+     debugger;
+        const { firstname,lastname,email,password } = this.state
+        const payload = { firstname,lastname,email,password }
+        
+        let reg_user=/^[A-Za-z]{2,10}$/;
+        let reg_pwd=/^[@#*&_%$!][A-Za-z0-9]{6,13}$/;;
+        let reg_email=/^[a-zA-Z0-9]+@+[a-zA-Z0-9]+.+[A-z]/;
+        
         let t=0;
-        let reqobj={
-            firstname1:this.state.firstname,
-            lastname1:this.state.lastname,
-            email1:this.state.email,
-            password1:this.state.password
-            
-        }
-
-        console.log(reqobj);
-        signup (reqobj).then(res => {
-        this.props.history.push('/signin');
-        })
-         
-
-        // signin (reqobj).then(res => {
-        //     this.props.history.push('/test');
-        // })
-        // .catch (res=> {
-        //     prompt("sucessfully")
-        // })
-            let reg_user=/^[A-Za-z0-9]{2,10}$/;
-            let reg_pwd=/^[@#*&_%$!][A-Za-z0-9]{6,13}$/;
-            let reg_email=/^[a-zA-Z0-9]+@+[a-zA-Z0-9]+.+[A-z]/;
-
-       if(!this.state.firstname) this.setState({fnameError:'Firstname is required'});
+        if(!this.state.firstname) this.setState({fnameError:'Firstname is required'});
         else if(!reg_user.test(this.state.firstname)) this.setState({fnameError:'Invalid Firstname'});
         else{
              t++;
-             this.setState({fnameError:''});   
+             this.setState({fnameError:''});
         }
            
         if(!this.state.lastname) this.setState({lnameError:'Lastname is required'});
@@ -83,18 +65,51 @@ class Signup extends Component{
         }
 
         if(!this.state.password) this.setState({passwordError:'Password is required'});
-        else if(!reg_pwd.test(this.state.password)) this.setState({passwordError:'Invalid Password'});
+        else if(!reg_pwd.test(this.state.password)) this.setState({passwordError:'Password should standerd format'});
         else {
             t++;
             this.setState({passwordError:''});
         }
         
-        if(t>4) {
-            this.props.REG();
-            browserHistory.push('/');
-            
-        }
-    }  
+        
+        if(t>3) {
+            console.log("hii")
+            await api.signup(payload).then(res => {
+                this.setState({
+                    firstname: '',
+                    lastname: '',
+                    email: '',
+                    password:''
+                  
+                })
+                console.log('hello')
+                browserHistory.push("/signin");
+            });
+                
+        }       
+    }
+
+    handleChange=(e)=>{
+        this.setState({[e.target.name]:e.target.value});
+    }
+    handleSignin=async()=>{
+        
+        const { email,password} = this.state;
+        const payload = { email,password }
+        await api.signin(payload).then(res => {
+            if(res.data==="Signin succesfully"){
+                alert(res.data)
+                browserHistory.push("/test");
+            }
+            else
+                alert(res.data);
+        })
+    }
+
+    
+
+   
+   
     render(){
         return(
             <div >
@@ -129,7 +144,7 @@ class Signup extends Component{
                    <lable className="label">Password</lable><br/>   
                    <input className="input_box" placeholder="password" type='password' name='password' onChange={this.handleChange}></input><br/> 
                    <p className='red'>{this.state.passwordError}</p>
-                   <button className="submitbutton" onClick={this.handleSubmit}><b>Submit</b></button><a id="link" href="/signin"><b>Allready Have an Account</b></a>            
+                   <button className="submitbutton" onClick={this.handleSubmit} ><b>Submit</b></button><a id="link" href="/signin"><b>Allready Have an Account</b></a>            
                    </div>
                    </div>        
                     </div> <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>  
