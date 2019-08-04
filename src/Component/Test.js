@@ -79,7 +79,7 @@ handleSubmit40=(e)=> {
                 <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
                 <div className="col-xs-2 col-sm-2 col-md-2 col-lg-"></div>
               <div id="a" className="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-                <select className="languagebutton"><option value="language">Language</option>
+                {/* <select className="languagebutton"><option value="language">Language</option>
                     <option >.NET </option>
                     <option >C++</option>
                     <option>Java</option>
@@ -88,10 +88,10 @@ handleSubmit40=(e)=> {
                     <option >Redux</option>
                     <option>NodeJs</option>
                     <option >COBOL</option>
-              </select>
+              </select> */}
              </div>
             <div id="b" className="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-             <select className="authorbutton"><option value="volvo">Author</option>
+             {/* <select className="authorbutton"><option value="volvo">Author</option>
                 <option >Rajaraman</option>
                 <option >Balgurusamy</option>
                 <option >Padmareddy</option>
@@ -100,9 +100,15 @@ handleSubmit40=(e)=> {
                 <option >Maximilian</option>
                 <option >Schwarzmuller</option>
                 <option >ThaneHubbeli</option>
-            </select></div>
-                <div id="c" className="col-xs-1 col-sm-1 col-md-1 col-lg-1"><button className="pricebutton">Price</button></div>
-                <div id="d" className="col-xs-1 col-sm-1 col-md-1 col-lg-1"><button className="solutionbutton">Solutions</button></div><img className="home" src={home} alt={"home"} height="30" width="30" onClick={this.handleSubmit40}></img>
+            </select> */}
+            </div>
+                <div id="c" className="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                    {/* <button className="pricebutton">Price</button> */}
+                    </div>
+                <div id="d" className="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                    {/* <button className="solutionbutton">Solutions</button> */}
+                    </div>
+                    {/* <img className="home" src={home} alt={"home"} height="30" width="30" onClick={this.handleSubmit40}></img> */}
                 </div>
                 </div>
             </div>
