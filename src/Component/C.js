@@ -5,8 +5,6 @@ import cbook from '../images/cbook.jpg';
 import likes from '../images/likes.png';
 import book from '../images/book.pdf';
 import balagurusamy from '../images/balagurusamy.jpg';
-// import '../CSS/Test.css';
-// import '../CSS/Books.css';
 import '../CSS/Text.css';
 import { SocialIcon } from 'react-social-icons';
 import browserHistory from "../Utils/browserHistory"
@@ -69,7 +67,6 @@ add=()=>{
                 <div  className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
                 </div></div>
             </div>
-
             <div className="quotes">     
                 <div class="box box2">
                 <div id="net" className="row">                      
@@ -78,19 +75,18 @@ add=()=>{
                     <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"> </div>                          
                     <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"> </div>                          
                     <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"> <img className="balu" src={balagurusamy} alt={"balagurusamy"} height="200" width="200" ></img>
-                    
                     {this.state.Users.map(category => {
                                             if(category.author==='E Balagurusamy') {
                                             return (
                                                 <div>
-                                            <p>{category.author}</p> 
-                                            <p>{category.books}</p> 
-                                            <p>{category.price}</p>
-                                            <p>{category.edition}</p>
-                                            <p>{category.published}</p>
-                                            </div>
-                                            )}
-                                            })}
+                                                    <p>{category.author}</p> 
+                                                    <p>{category.books}</p> 
+                                                    <p>{category.price}</p>
+                                                    <p>{category.edition}</p>
+                                                    <p>{category.published}</p>
+                                               </div>
+                                               )}
+                                               })}
                     
                     <a href = {book} target = "_blank"><b id="read">Read</b></a>
                   <h5>{this.state.name}</h5>
