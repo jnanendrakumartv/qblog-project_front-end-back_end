@@ -41,7 +41,7 @@ class Signup extends Component {
         const payload = { firstname,lastname,email,password }
         
         let reg_user=/^[A-Za-z]{2,10}$/;
-        let reg_pwd=/^[@#*&_%$!][A-Za-z0-9]{6,13}$/;;
+        let reg_pwd=/^[@#*&_%$!][A-Za-z0-9]{6,13}$/;
         let reg_email=/^[a-zA-Z0-9]+@+[a-zA-Z0-9]+.+[A-z]/;
         
         let t=0;
