@@ -3,6 +3,7 @@ import React,{Component} from 'react';
 import clear from '../images/clear.png';
 import net from '../images/net.jpg';
 import likes from '../images/likes.png';
+import net1 from '../images/net1.pdf';
 import rajaraman from '../images/rajaraman.jpg';
 import '../CSS/Text.css';
 import { SocialIcon } from 'react-social-icons';
@@ -87,7 +88,7 @@ add=()=>{
                                  </div>
                                     )
                                   })}
-
+                        <a href = {net1} target = "_blank"><b id="read">Read</b></a>
 
                      {/* <h3 > <b>C# .NET PROGRAMING </b></h3> <h4><i>C# Net Object Oriented Programing Language</i></h4> <h4><b>8Th Edition</b></h4> <h5>Rs: 650/-</h5> */}
                   <h5>{this.state.name}</h5>

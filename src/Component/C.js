@@ -3,6 +3,7 @@ import React,{Component} from 'react';
 import clear from '../images/clear.png';
 import cbook from '../images/cbook.jpg';
 import likes from '../images/likes.png';
+import book from '../images/book.pdf';
 import balagurusamy from '../images/balagurusamy.jpg';
 // import '../CSS/Test.css';
 // import '../CSS/Books.css';
@@ -91,17 +92,15 @@ add=()=>{
                                             )}
                                             })}
                     
-                    
+                    <a href = {book} target = "_blank"><b id="read">Read</b></a>
                   <h5>{this.state.name}</h5>
                   <input type='text' onChange={this.handleChange} placeholder="write your comment..."></input>
                   <h5>{this.state.array}</h5>
                   <button className="clickbutton" onClick={this.incrementMe} > Likes:{this.state.count}<img className="netbook" src={likes} alt={"likes"} height="30" width="30" ></img> </button>
                   </ div>
-                    <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"> </div>                                 
+                 <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"> </div>                                 
                 </div>
                 </div>
-               
-         
             </div>
             <div className="footer">
                <div className="element">
