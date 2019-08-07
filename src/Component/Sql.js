@@ -3,6 +3,7 @@ import React,{Component} from 'react';
 import clear from '../images/clear.png';
 import sql from '../images/sql.jpg';
 import likes from '../images/likes.png';
+import sql1 from '../images/sql1.pdf';
 import sqlwritter from '../images/sqlwritter.jpg';
 import '../CSS/Text.css';
 import { SocialIcon } from 'react-social-icons';
@@ -85,6 +86,8 @@ add=()=>{
                                  </div>
                                     )
                                   })}
+                                  <a href = {sql1} target = "_blank"><b id="read">Read</b></a>
+
                      {/* <h3 > <b>SQL </b></h3> <h4><i>The Complete Reference SQL</i></h4> <h4><b>3rd Edition</b></h4> <h5>Rs: 1050/-</h5> */}
                   <h5>{this.state.name}</h5>
                   <input type='text' onChange={this.handleChange} placeholder="write your comment..."></input>

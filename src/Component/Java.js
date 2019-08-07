@@ -3,6 +3,7 @@ import React,{Component} from 'react';
 import clear from '../images/clear.png';
 import javabook from '../images/javabook.jpg';
 import likes from '../images/likes.png';
+import java from '../images/java.pdf';
 import padma from '../images/padma.png';
 import '../CSS/Text.css';
 import { SocialIcon } from 'react-social-icons';
@@ -84,7 +85,8 @@ add=()=>{
                              )}
                              })}
                     
-                    
+                    <a href = {java} target = "_blank"><b id="read">Read</b></a>
+
                      {/* <h3 > <b>JAVA PROGRAMING </b></h3> <h4><i>The Complete Reference Java</i></h4> <h4><b>7Th Edition</b></h4> <h5>Rs: 550/-</h5> */}
                   <h5>{this.state.name}</h5>
                   <input type='text' onChange={this.handleChange} placeholder="write your comment..."></input>
