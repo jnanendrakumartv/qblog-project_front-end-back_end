@@ -81,7 +81,6 @@ class Signup extends Component {
                     lastname: '',
                     email: '',
                     password:''
-                  
                 })
                 console.log('hello')
                 browserHistory.push("/signin");
@@ -93,11 +92,17 @@ class Signup extends Component {
     handleChange=(e)=>{
         this.setState({[e.target.name]:e.target.value});
     }
-    handleSignin=async()=>{
-        
+    handleSignin=async()=>{       
         const { email,password} = this.state;
         const payload = { email,password }
         await api.signin(payload).then(res => {
+
+
+            // const token = res.data.token;
+            //     localStorage.setItem('jwtToken',token);
+            //     setAuthorizationToken(token);
+
+           
             if(res.data==="Signin succesfully"){
                 alert(res.data)
                 browserHistory.push("/test");
@@ -106,10 +111,6 @@ class Signup extends Component {
                 alert(res.data);
         })
     }
-
-    
-
-   
    
     render(){
         return(

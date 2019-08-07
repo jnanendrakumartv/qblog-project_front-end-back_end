@@ -3,6 +3,7 @@ import React,{Component} from 'react';
 import clear from '../images/clear.png';
 import rc from '../images/rc.png';
 import likes from '../images/likes.png';
+import react1 from '../images/react1.pdf';
 import rc1 from '../images/rc1.jpg';
 import '../CSS/Text.css';
 import { SocialIcon } from 'react-social-icons';
@@ -83,7 +84,7 @@ add=()=>{
                                  </div>
                                     )
                                   })}
-                     
+                      <a href = {react1} target = "_blank"><b id="read">Read</b></a>
                      {/* <h3 > <b>REACT JS Essential </b></h3> <h4><i>The Complete Reference ReactJs</i></h4> <h4><b>3rd Edition</b></h4> <h5>Rs: 750/-</h5> */}
                   <h5>{this.state.name}</h5>
                   <input type='text' onChange={this.handleChange} placeholder="write your comment..."></input>

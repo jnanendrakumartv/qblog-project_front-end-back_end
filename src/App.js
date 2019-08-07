@@ -1,5 +1,8 @@
 import React from 'react';
-import { BrowserRouter as Router,Route,Switch,Redirect } from 'react-router-dom';
+import {BrowserRouter as Router,Redirect, Route, Switch,} from 'react-router-dom';
+// import { BrowserRouter as Router,Route,Switch,Redirect } from 'react-router-dom';
+// import { PrivateRoute, Switch, Redirect } from 'react-router-dom';
+// import { Route, Switch, Redirect } from 'react-router-dom';
 import './App.css';
 import First from './Component/First';
 import Signup from './Component/Signup';
@@ -15,6 +18,26 @@ import Sql from './Component/Sql';
 import ReactJs from './Component/ReactJs';
 import Redux from './Component/Redux';
 import Node from './Component/Node';
+
+
+
+// const PrivateRoute = ({ component: IncomingComponent, ...rest }) => (
+//   <Route
+//   {...rest}
+//   render={props => (
+//   (localStorage.getItem('token') && localStorage.getItem('user')) ? (
+//   <IncomingComponent {...props} />
+//   ) : (
+//   <Redirect to={{
+//   pathname: '/login',
+//   state: { from: props.location },
+//   }}
+//   />
+//   )
+//   )}
+//   />
+//   );
+  
 
 function App() {
   return (
@@ -35,6 +58,22 @@ function App() {
            <Route exact path="/react" component={ReactJs}></Route>
            <Route exact path="/redux" component={Redux}></Route>
            <Route exact path="/node" component={Node}></Route>
+
+
+           {/* <PrivateRoute exact path="/signup" component={Signup}></PrivateRoute> 
+           <PrivateRoute exact path="/signin" component={Signin}></PrivateRoute>
+           <PrivateRoute exact path="/board" component={Dash}></PrivateRoute>  
+           <PrivateRoute exact path="/books" component={Books}></PrivateRoute>
+           <PrivateRoute exact path="/test" component={Test}></PrivateRoute>
+           <PrivateRoute exact path="/c" component={C}></PrivateRoute>
+           <PrivateRoute exact path="/net" component={CNet}></PrivateRoute>
+           <PrivateRoute exact path="/cobol" component={Cobol}></PrivateRoute>
+           <PrivateRoute exact path="/java" component={Java}></PrivateRoute>
+           <PrivateRoute exact path="/sql" component={Sql}></PrivateRoute>
+           <PrivateRoute exact path="/react" component={ReactJs}></PrivateRoute>
+           <PrivateRoute path="/redux" component={Redux}></PrivateRoute>
+           <PrivateRoute path="/node" component={Node}></PrivateRoute> 
+            */}
         </Switch>
       </Router>
     </div>
