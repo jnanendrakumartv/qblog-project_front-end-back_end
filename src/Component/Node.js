@@ -4,6 +4,7 @@ import clear from '../images/clear.png';
 import node from '../images/node.png';
 import likes from '../images/likes.png';
 import node1 from '../images/node1.jpg';
+import api from '../Api/index';
 import '../CSS/Text.css';
 import { SocialIcon } from 'react-social-icons';
 import browserHistory from "../Utils/browserHistory"
@@ -12,8 +13,25 @@ import axios from 'axios';
 class Node extends Component{
     constructor(props) {
         super(props);
-        this.state = { name:"", array:[],  count:0, Users: [] };
+        this.state = { name:"", array:[],  count:0, Users: [], comments:"" };
     }
+    handleSubmit = async () => {
+        debugger;
+           const { comments } = this.state
+           const payload = { comments }
+           let t=0;
+           if(t>1) {
+            console.log("hii")
+            await api.details(payload).then(res => {
+                this.setState({
+                    comments:''
+                })
+               
+            });
+                
+        }       
+    }   
+
     componentDidMount(){
         axios.get('http://localhost:9000/details')
         
@@ -48,7 +66,6 @@ add=()=>{
     }
     
     render(){
-        // var incrementMe=0;
         return(
             <div>
             <div className="Header"> <div className="element">
@@ -77,23 +94,23 @@ add=()=>{
                           return (
                           <div>
                             <p>{category.author}</p> 
-                             <p>{category.books}</p> 
+                             <p>{category.books}</p>
                              <p>{category.price} {category.published} </p>
                              <p>{category.edition} </p>
                              <p>{category.build}</p>
+
+                             <p>{category.price} {category.edition}</p>
+                             <p>{category.published}</p>
+                             <p>{category.comments}</p><p>{category.comments1}</p>
+
                          </div>
                              )}
                              })}
-                     {/* <h3 > <b>NODE </b></h3> <h4><i>Node.js complete Guide</i></h4> <h4><b>4th Edition</b></h4> <h5>Rs: 850/-</h5> */}
                   <h5>{this.state.name}</h5>
                   <input type='text' onChange={this.handleChange} placeholder="write your comment..."></input>
                   <h5>{this.state.array}</h5>
                   <button className="clickbutton" onClick={this.incrementMe} > Likes:{this.state.count}<img className="netbook" src={likes} alt={"likes"} height="30" width="30" ></img> </button>
-                  {/* {this.state.users.map(category => {
-                                            if(category.clickbutton==='incrementMe')
-                                            incrementMe=incrementMe+1;
-                                           
-                                        })} */}
+                 <input placeholder="write your comments" className="comments"></input><button onClick={this.handleSubmit}>submit</button>
                   </ div>
                     <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"> </div>                                 
                 </div>
