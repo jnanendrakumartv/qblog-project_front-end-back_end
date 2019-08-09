@@ -95,21 +95,22 @@ class Signup extends Component {
     handleSignin=async()=>{       
         const { email,password} = this.state;
         const payload = { email,password }
-        await api.signin(payload).then(res => {
-
+        const signinRes = await api.signin(payload)
+        sessionStorage.setItem('authentication', signinRes.data.token)
+        sessionStorage.setItem('userEmail', signinRes.data.email)
 
             // const token = res.data.token;
             //     localStorage.setItem('jwtToken',token);
             //     setAuthorizationToken(token);
 
            
-            if(res.data==="Signin succesfully"){
-                alert(res.data)
+            // if(res.data==="Signin succesfully"){
+            //     alert(res.data)
                 browserHistory.push("/test");
-            }
-            else
-                alert(res.data);
-        })
+            // }
+            // else
+            //     alert(res.data);
+        // })
     }
    
     render(){

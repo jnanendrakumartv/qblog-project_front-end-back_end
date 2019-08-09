@@ -21,22 +21,22 @@ import Node from './Component/Node';
 
 
 
-// const PrivateRoute = ({ component: IncomingComponent, ...rest }) => (
-//   <Route
-//   {...rest}
-//   render={props => (
-//   (localStorage.getItem('token') && localStorage.getItem('user')) ? (
-//   <IncomingComponent {...props} />
-//   ) : (
-//   <Redirect to={{
-//   pathname: '/login',
-//   state: { from: props.location },
-//   }}
-//   />
-//   )
-//   )}
-//   />
-//   );
+const PrivateRoute = ({ component: IncomingComponent, ...rest }) => (
+  <Route
+  {...rest}
+  render={props => (
+  (localStorage.getItem('token') && localStorage.getItem('user')) ? (
+  <IncomingComponent {...props} />
+  ) : (
+  <Redirect to={{
+  pathname: '/login',
+  state: { from: props.location },
+  }}
+  />
+  )
+  )}
+  />
+  );
   
 
 function App() {
@@ -44,6 +44,7 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
+           
            <Route exact path="/" component={First}></Route> 
            <Route exact path="/signup" component={Signup}></Route> 
            <Route exact path="/signin" component={Signin}></Route>
@@ -60,7 +61,9 @@ function App() {
            <Route exact path="/node" component={Node}></Route>
 
 
-           {/* <PrivateRoute exact path="/signup" component={Signup}></PrivateRoute> 
+        
+           {/* <PrivateRoute exact path="/" component={Frist}></PrivateRoute> 
+           <PrivateRoute exact path="/signup" component={Signup}></PrivateRoute> 
            <PrivateRoute exact path="/signin" component={Signin}></PrivateRoute>
            <PrivateRoute exact path="/board" component={Dash}></PrivateRoute>  
            <PrivateRoute exact path="/books" component={Books}></PrivateRoute>
@@ -72,8 +75,8 @@ function App() {
            <PrivateRoute exact path="/sql" component={Sql}></PrivateRoute>
            <PrivateRoute exact path="/react" component={ReactJs}></PrivateRoute>
            <PrivateRoute path="/redux" component={Redux}></PrivateRoute>
-           <PrivateRoute path="/node" component={Node}></PrivateRoute> 
-            */}
+           <PrivateRoute path="/node" component={Node}></PrivateRoute>  */}
+           
         </Switch>
       </Router>
     </div>

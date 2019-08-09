@@ -12,7 +12,7 @@ import axios from 'axios';
 class Node extends Component{
     constructor(props) {
         super(props);
-        this.state = { name:"", array:[],  count:0,Users: [] };
+        this.state = { name:"", array:[],  count:0, Users: [] };
     }
     componentDidMount(){
         axios.get('http://localhost:9000/details')
@@ -48,6 +48,7 @@ add=()=>{
     }
     
     render(){
+        // var incrementMe=0;
         return(
             <div>
             <div className="Header"> <div className="element">
@@ -77,9 +78,9 @@ add=()=>{
                           <div>
                             <p>{category.author}</p> 
                              <p>{category.books}</p> 
-                             <p>{category.price}</p>
-                             <p>{category.edition}</p>
-                             <p>{category.published}</p>
+                             <p>{category.price} {category.published} </p>
+                             <p>{category.edition} </p>
+                             <p>{category.build}</p>
                          </div>
                              )}
                              })}
@@ -88,6 +89,11 @@ add=()=>{
                   <input type='text' onChange={this.handleChange} placeholder="write your comment..."></input>
                   <h5>{this.state.array}</h5>
                   <button className="clickbutton" onClick={this.incrementMe} > Likes:{this.state.count}<img className="netbook" src={likes} alt={"likes"} height="30" width="30" ></img> </button>
+                  {/* {this.state.users.map(category => {
+                                            if(category.clickbutton==='incrementMe')
+                                            incrementMe=incrementMe+1;
+                                           
+                                        })} */}
                   </ div>
                     <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"> </div>                                 
                 </div>
