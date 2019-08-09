@@ -77,9 +77,9 @@ add=()=>{
                           <div>
                             <p>{category.author}</p> 
                              <p>{category.books}</p> 
-                             <p>{category.price}</p>
-                             <p>{category.edition}</p>
+                             <p>{category.price} {category.edition}</p>
                              <p>{category.published}</p>
+                             <p>{category.comments}</p><p>{category.comments1}</p>
                          </div>
                              )}
                              })}
