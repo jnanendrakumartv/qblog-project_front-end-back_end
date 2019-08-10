@@ -3,6 +3,8 @@ import React,{Component} from 'react';
 import clear from '../images/clear.png';
 import rx from '../images/rx.png';
 import likes from '../images/likes.png';
+import redux1 from '../images/redux1.pdf';
+import api from '../Api/index';
 import rd from '../images/rd.jpg';
 import '../CSS/Text.css';
 import { SocialIcon } from 'react-social-icons';
@@ -12,8 +14,34 @@ import axios from 'axios';
 class Redux extends Component{
     constructor(props) {
         super(props);
-        this.state = { name:"", array:[],  count:0,Users: [] };
+        this.state = { name:"", array:[],  count:0,Users: [], comments:'', cError:'' };
     }
+    handleSubmit = async () => {
+        debugger;
+           const { comments } = this.state
+           const payload = { comments }
+           
+           let t=0;
+           if(!this.state.comments) this.setState({cError:''});
+           else{
+                t++;
+                this.setState({cError:''});
+           }
+           if(t=1) {
+               console.log("hii")
+               await api.details(payload).then(res => {
+                   this.setState({
+                       comments:''
+                   })
+                   console.log('hello')
+                   browserHistory.push("/node");
+               });
+           }       
+       }
+       handleChange=(e)=>{
+           this.setState({[e.target.name]:e.target.value});
+       }
+
     componentDidMount(){
         axios.get('http://localhost:9000/details')
         
@@ -23,11 +51,6 @@ class Redux extends Component{
         console.log(this.state.Users);
         });
         }
-  
-handleChange=(event) =>{
-    this.setState({name: event.target.value});
-}
-
 add=()=>{
     this.state.arry.push(this.state.name);
     this.setState({array:this.state.array});  
@@ -71,23 +94,25 @@ add=()=>{
                     <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"> </div>                          
                     <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"> <img className="cbook" src={rd} alt={"rd"} height="200" width="200" ></img>
                     { this.state.Users.map(category => {
-                          if(category.author==='Maximilian')
+                          if(category.authorname==='Maximilian')
                              return (
                                  <div>
-                                    <p>{category.author}</p> 
-                                    <p>{category.books}</p> 
+                                    <p>{category.authorname}</p> 
+                                    <p>{category.bookname}</p> 
                                     <p>{category.price}</p>
                                     <p>{category.edition}</p>
                                     <p>{category.published}</p>
                                  </div>
                                     )
                                   })}
-                     
-                     {/* <h3 > <b>REDUX </b></h3> <h4><i>React-Redux complete Guide</i></h4> <h4><b>3rd Edition</b></h4> <h5>Rs: 950/-</h5> */}
-                  <h5>{this.state.name}</h5>
-                  <input type='text' onChange={this.handleChange} placeholder="write your comment..."></input>
-                  <h5>{this.state.array}</h5>
+                                  <div>
+                                        Comments  : {this.state.Users.map(user => <span>{user.comments}</span>)}
+                                    </div> 
+                                    <a href = {redux1} target = "_blank"><b id="read">Read</b></a>
                   <button className="clickbutton" onClick={this.incrementMe} > Likes:{this.state.count}<img className="netbook" src={likes} alt={"likes"} height="30" width="30" ></img> </button>
+                  <input className="input_box" placeholder="write your comments" type='text' name='comments' onChange={this.handleChange}></input>
+                  <p className='red'>{this.state.cError}</p>
+                  <button className="submitbutton" onClick={this.handleSubmit} ><b>Submit</b></button>
                   </ div>
                     <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"> </div>                                 
                 </div>

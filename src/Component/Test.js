@@ -2,7 +2,7 @@
 import React,{Component} from 'react';
 // import {connect} from 'react-redux';
 import clear from '../images/clear.png';
-import net from '../images/net.jpg';
+import srirama from '../images/srirama.jpeg';
 import home from '../images/home.png';
 import cbook from '../images/cbook.jpg';
 import javabook from '../images/javabook.jpg';
@@ -67,7 +67,7 @@ handleSubmit16=(e)=> {
     browserHistory.push("/node");
 }
 handleSubmit40=(e)=> {
-    browserHistory.push("/");
+    browserHistory.push("/books");
 }
     render(){
         return(
@@ -108,7 +108,7 @@ handleSubmit40=(e)=> {
                 <div id="d" className="col-xs-1 col-sm-1 col-md-1 col-lg-1">
                     {/* <button className="solutionbutton">Solutions</button> */}
                     </div>
-                    {/* <img className="home" src={home} alt={"home"} height="30" width="30" onClick={this.handleSubmit40}></img> */}
+                    <img className="home" src={home} alt={"home"} height="30" width="30" onClick={this.handleSubmit40}></img>
                 </div>
                 </div>
             </div>
@@ -116,7 +116,7 @@ handleSubmit40=(e)=> {
             <div className="quotes">     
                 <div class="box box2">
                 <div id="net" className="row">                      
-                    <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3"><img className="netbook" src={net} alt={"net"} height="200" width="200"  onClick={this.handleSubmit10}  ></img><h3><b>Rajaraman</b></h3> </div>                          
+                    <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3"><img className="netbook" src={srirama} alt={"srirama"} height="200" width="200"  onClick={this.handleSubmit10}  ></img><h3><b>Rajaraman</b></h3> </div>                          
                     <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3"><img className="cbook" src={cbook} alt={"cbook"} height="200" width="200" onClick={this.handleSubmit3} ></img><h3><b>Balagurusamy</b></h3></div>
                     <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3"><img className="java" src={javabook} alt={"javabook"} height="200" width="200" onClick={this.handleSubmit12} ></img><h3><b>PadmaReddy</b></h3> </div>                          
                     <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3"><img className="sqlbook" src={sql} alt={"sql"} height="200" width="200" onClick={this.handleSubmit13} ></img> <h3><b>Andrew</b></h3></div>                                  

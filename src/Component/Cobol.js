@@ -1,8 +1,9 @@
-
 import React,{Component} from 'react';
 import clear from '../images/clear.png';
 import cobol1 from '../images/cobol1.png';
+import cobolbook from '../images/cobolbook.pdf';
 import likes from '../images/likes.png';
+import api from '../Api/index';
 import cobal1 from '../images/cobal1.jpg';
 import '../CSS/Text.css';
 import { SocialIcon } from 'react-social-icons';
@@ -13,8 +14,33 @@ import axios from 'axios';
 class Cobol extends Component{
     constructor(props) {
         super(props);
-        this.state = { name:"", array:[],  count:0,Users: [] };
+        this.state = { name:"", array:[],  count:0,Users: [], comments:'', cError:'' };
     }
+    handleSubmit = async () => {
+        debugger;
+           const { comments } = this.state
+           const payload = { comments }
+           
+           let t=0;
+           if(!this.state.comments) this.setState({cError:''});
+           else{
+                t++;
+                this.setState({cError:''});
+           }
+           if(t=1) {
+               console.log("hii")
+               await api.details(payload).then(res => {
+                   this.setState({
+                       comments:''
+                   })
+                   console.log('hello')
+                   browserHistory.push("/node");
+               });
+           }       
+       }
+       handleChange=(e)=>{
+           this.setState({[e.target.name]:e.target.value});
+       }
     componentDidMount(){
         axios.get('http://localhost:9000/details')
         
@@ -74,23 +100,25 @@ add=()=>{
                     <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"> </div>                          
                     <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"> <img className="cbook" src={cobal1} alt={"cobal1"} height="200" width="200" ></img>
                          {this.state.Users.map(category => {
-                          if(category.author==='Thane Hebbeli') {
+                          if(category.authorname==='Thane Hebbeli') {
                           return (
                           <div>
-                            <p>{category.author}</p> 
-                             <p>{category.books}</p> 
+                            <p>{category.authorname}</p> 
+                             <p>{category.bookname}</p> 
                              <p>{category.price}</p>
                              <p>{category.edition}</p>
                              <p>{category.published}</p>
                          </div>
                              )}
                              })}
-
-                     {/* <h3 > <b>COBOL PROGRAMING </b></h3> <h4><i>Cobol Object Oriented Programing Language</i></h4> <h4><b>11Th Edition</b></h4> <h5>Rs: 350/-</h5> */}
-                  <h5>{this.state.name}</h5>
-                  <input type='text' onChange={this.handleChange} placeholder="write your comment..."></input>
-                  <h5>{this.state.array}</h5>
+                           <div>
+                             Comments  : {this.state.Users.map(user => <span>{user.comments}</span>)}
+                           </div> 
+                           <a href = {cobolbook} target = "_blank"><b id="read">Read</b></a> 
                   <button className="clickbutton" onClick={this.incrementMe} > Likes:{this.state.count}<img className="netbook" src={likes} alt={"likes"} height="30" width="30" ></img> </button>
+                  <input className="input_box" placeholder="write your comments" type='text' name='comments' onChange={this.handleChange}></input>
+                  <p className='red'>{this.state.cError}</p>
+                  <button className="submitbutton" onClick={this.handleSubmit} ><b>Submit</b></button>
                   </ div>
                     <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"> </div>                                 
                 </div>

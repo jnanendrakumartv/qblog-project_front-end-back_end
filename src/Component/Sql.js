@@ -3,6 +3,7 @@ import React,{Component} from 'react';
 import clear from '../images/clear.png';
 import sql from '../images/sql.jpg';
 import likes from '../images/likes.png';
+import api from '../Api/index';
 import sql1 from '../images/sql1.pdf';
 import sqlwritter from '../images/sqlwritter.jpg';
 import '../CSS/Text.css';
@@ -14,8 +15,33 @@ import axios from 'axios';
 class Sql extends Component{
     constructor(props) {
         super(props);
-        this.state = { name:"", array:[],  count:0, Users: [] };
+        this.state = { name:"", array:[],  count:0, Users: [], Comments:'', cError:'' };
     }
+    handleSubmit = async () => {
+        debugger;
+           const { comments } = this.state
+           const payload = { comments }
+           
+           let t=0;
+           if(!this.state.comments) this.setState({cError:''});
+           else{
+                t++;
+                this.setState({cError:''});
+           }
+           if(t=1) {
+               console.log("hii")
+               await api.details(payload).then(res => {
+                   this.setState({
+                       comments:''
+                   })
+                   console.log('hello')
+                   browserHistory.push("/node");
+               });
+           }       
+       }
+       handleChange=(e)=>{
+           this.setState({[e.target.name]:e.target.value});
+       }
     componentDidMount(){
         axios.get('http://localhost:9000/details')
         
@@ -25,11 +51,6 @@ class Sql extends Component{
         console.log(this.state.Users);
         });
         }
-  
-handleChange=(event) =>{
-    this.setState({name: event.target.value});
-}
-
 add=()=>{
     this.state.arry.push(this.state.name);
     this.setState({array:this.state.array});  
@@ -75,24 +96,25 @@ add=()=>{
                     <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"> </div>                          
                     <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"> <img className="cbook" src={sqlwritter} alt={"swlwritter"} height="200" width="200" ></img>
                     { this.state.Users.map(category => {
-                          if(category.author==='Andrew J')
+                          if(category.authorname==='Andrew J')
                              return (
                                  <div>
-                                    <p>{category.author}</p> 
-                                    <p>{category.books}</p> 
+                                    <p>{category.authorname}</p> 
+                                    <p>{category.bookname}</p> 
                                     <p>{category.price}</p>
                                     <p>{category.edition}</p>
                                     <p>{category.published}</p>
                                  </div>
                                     )
                                   })}
+                                   <div>
+                                        Comments  : {this.state.Users.map(user => <span>{user.comments}</span>)}
+                                    </div> 
                                   <a href = {sql1} target = "_blank"><b id="read">Read</b></a>
-
-                     {/* <h3 > <b>SQL </b></h3> <h4><i>The Complete Reference SQL</i></h4> <h4><b>3rd Edition</b></h4> <h5>Rs: 1050/-</h5> */}
-                  <h5>{this.state.name}</h5>
-                  <input type='text' onChange={this.handleChange} placeholder="write your comment..."></input>
-                  <h5>{this.state.array}</h5>
                   <button className="clickbutton" onClick={this.incrementMe} > Likes:{this.state.count}<img className="netbook" src={likes} alt={"likes"} height="30" width="30" ></img> </button>
+                  <input className="input_box" placeholder="write your comments" type='text' name='comments' onChange={this.handleChange}></input>
+                  <p className='red'>{this.state.cError}</p>
+                  <button className="submitbutton" onClick={this.handleSubmit} ><b>Submit</b></button>
                   </ div>
                     <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"> </div>                                 
                 </div>

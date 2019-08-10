@@ -4,6 +4,7 @@ import clear from '../images/clear.png';
 import node from '../images/node.png';
 import likes from '../images/likes.png';
 import node1 from '../images/node1.jpg';
+import nodebook from '../images/nodebook.pdf';
 import api from '../Api/index';
 import '../CSS/Text.css';
 import { SocialIcon } from 'react-social-icons';
@@ -13,24 +14,38 @@ import axios from 'axios';
 class Node extends Component{
     constructor(props) {
         super(props);
-        this.state = { name:"", array:[],  count:0, Users: [], comments:"" };
+        this.state = { name:'',
+         array:[], 
+         count:0, 
+         Users: [],
+         comments:'', cError:'', };
     }
     handleSubmit = async () => {
         debugger;
            const { comments } = this.state
            const payload = { comments }
+           
            let t=0;
-           if(t>1) {
-            console.log("hii")
-            await api.details(payload).then(res => {
-                this.setState({
-                    comments:''
-                })
-               
-            });
-                
-        }       
-    }   
+           if(!this.state.comments) this.setState({cError:''});
+           // else if(!reg_price.test(this.state.authorname)) this.setState({aError:''});
+           else{
+                t++;
+                this.setState({cError:''});
+           }
+           if(t=1) {
+               console.log("hii")
+               await api.details(payload).then(res => {
+                   this.setState({
+                       comments:''
+                   })
+                   console.log('hello')
+                   browserHistory.push("/node");
+               });
+           }       
+       }
+       handleChange=(e)=>{
+           this.setState({[e.target.name]:e.target.value});
+       }
 
     componentDidMount(){
         axios.get('http://localhost:9000/details')
@@ -42,9 +57,7 @@ class Node extends Component{
         });
         }
   
-handleChange=(event) =>{
-    this.setState({name: event.target.value});
-}
+
 
 add=()=>{
     this.state.arry.push(this.state.name);
@@ -90,27 +103,29 @@ add=()=>{
                     <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"> <img className="cbook" src={node1} alt={"node"} height="200" width="200" ></img>
                     
                     {this.state.Users.map(category => {
-                          if(category.author==='Schwarzmuller') {
+                          if(category.authorname==='Schwarzmuller') {
                           return (
                           <div>
-                            <p>{category.author}</p> 
-                             <p>{category.books}</p>
-                             <p>{category.price} {category.published} </p>
+                            <p>{category.authorname}</p> 
+                             <p>{category.bookname}</p>
+                             <p>{category.price} </p>
                              <p>{category.edition} </p>
                              <p>{category.build}</p>
-
-                             <p>{category.price} {category.edition}</p>
-                             <p>{category.published}</p>
-                             <p>{category.comments}</p><p>{category.comments1}</p>
-
+                        
                          </div>
                              )}
                              })}
-                  <h5>{this.state.name}</h5>
-                  <input type='text' onChange={this.handleChange} placeholder="write your comment..."></input>
-                  <h5>{this.state.array}</h5>
+
+                                <div>
+                                Comments  : {this.state.Users.map(user => <span>
+                                    {user.comments}
+                                </span>)}
+                                </div>         
+                                <a href = {nodebook} target = "_blank"><b id="read">Read</b></a>
                   <button className="clickbutton" onClick={this.incrementMe} > Likes:{this.state.count}<img className="netbook" src={likes} alt={"likes"} height="30" width="30" ></img> </button>
-                 <input placeholder="write your comments" className="comments"></input><button onClick={this.handleSubmit}>submit</button>
+                  <input className="input_box" placeholder="write your comments" type='text' name='comments' onChange={this.handleChange}></input>
+                  <p className='red'>{this.state.cError}</p>
+                  <button className="submitbutton" onClick={this.handleSubmit} ><b>Submit</b></button>
                   </ div>
                     <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"> </div>                                 
                 </div>

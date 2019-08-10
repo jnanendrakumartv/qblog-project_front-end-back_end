@@ -33,8 +33,7 @@ class Books extends Component{
         else{
              t++;
              this.setState({aError:''});
-        }
-           
+        } 
         if(!this.state.bookname) this.setState({bError:'bookname is required'});
         // else if(!reg_price.test(this.state.bookname)) this.setState({bError:''}); 
         else {
@@ -54,7 +53,7 @@ class Books extends Component{
             t++;
             this.setState({eError:''});
         }
-        if(t>4) {
+        if(t>3) {
             console.log("hii")
             await api.details(payload).then(res => {
                 this.setState({
