@@ -25,32 +25,28 @@ class Books extends Component{
     }
     
     handleSubmit = async () => {
-     debugger;
+    //  debugger;
         const { authorname,bookname,price,edition,comments } = this.state
         const payload = { authorname,bookname,price,edition, comments }
         
         let t=0;
         if(!this.state.authorname) this.setState({aError:'Author name is required'});
-        // else if(!reg_price.test(this.state.authorname)) this.setState({aError:''});
         else{
              t++;
              this.setState({aError:''});
         } 
         if(!this.state.bookname) this.setState({bError:'bookname is required'});
-        // else if(!reg_price.test(this.state.bookname)) this.setState({bError:''}); 
         else {
             t++;
             this.setState({bError:''});
         }
         if(!this.state.price) this.setState({pError:'Price is required'});
-        // else if(!reg_price.test(this.state.price)) this.setState({pError:''}); 
         else {
             t++;
             this.setState({pError:''});
         }
 
         if(!this.state.edition) this.setState({eError:'Edition is required'});
-        // else if(!reg_price.test(this.state.edition)) this.setState({eError:''});
         else {
             t++;
             this.setState({eError:''});

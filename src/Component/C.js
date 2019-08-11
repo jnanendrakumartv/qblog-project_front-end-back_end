@@ -19,7 +19,7 @@ class C extends Component{
         this.state = { name:"", array:[],  count:0, Users: [], comments:'', cError:'' };
     }
     handleSubmit = async () => {
-        debugger;
+        // debugger;
            const { comments } = this.state
            const payload = { comments }
            
@@ -37,7 +37,7 @@ class C extends Component{
                        comments:''
                    })
                    console.log('hello')
-                   browserHistory.push("/node");
+                   browserHistory.push("/c");
                });
            }       
        }
@@ -82,13 +82,7 @@ add=()=>{
                 <div className="Header"> <div className="element">
                 <div className="row">
                 <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2"><img className="logo" src={clear} alt={"clear"} height="50" width="50" onClick={this.handleSubmit1}></img><h4 id="h4"><i>CLEARVOICE</i></h4></div> 
-                <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
-                <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
-                <div className="col-xs-2 col-sm-2 col-md-2 col-lg-"></div>
-                <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"> </div>
-                <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
-                <div  className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
-                <div  className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+                <div className="col-xs-10 col-sm-10 col-md-10 col-lg-10"></div>
                 </div></div>
             </div>
             <div className="quotes">     
@@ -96,8 +90,7 @@ add=()=>{
                 <div id="net" className="row">                      
                     <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"> </div>                          
                     <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"><img className="cbook" src={geetha1} alt={"geetha1"} height="500" width="400" ></img><h3><b>SWAMY PRABHUPADA</b></h3></div>
-                    <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"> </div>                          
-                    <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"> </div>                          
+                    <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3"> </div>                                                    
                     <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"> <img className="balu" src={prabu} alt={"prabu"} height="200" width="200" ></img>
                     {this.state.Users.map(category => {
                                             if(category.authorname==='Swamy Prabhupada') {
