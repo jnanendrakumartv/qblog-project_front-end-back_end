@@ -15,6 +15,8 @@ class Books extends Component{
             bookname:'',
             price:'',
             edition:'',
+            comments:'',
+            cError:'',
             aError:'',
             bError:'',
             pError:'',
@@ -24,8 +26,8 @@ class Books extends Component{
     
     handleSubmit = async () => {
      debugger;
-        const { authorname,bookname,price,edition } = this.state
-        const payload = { authorname,bookname,price,edition }
+        const { authorname,bookname,price,edition,comments } = this.state
+        const payload = { authorname,bookname,price,edition, comments }
         
         let t=0;
         if(!this.state.authorname) this.setState({aError:'Author name is required'});
@@ -53,6 +55,11 @@ class Books extends Component{
             t++;
             this.setState({eError:''});
         }
+        if(!this.state.comments) this.setState({cError:''});
+        else {
+            t++;
+            this.setState({cError:''});
+        }
         if(t>3) {
             console.log("hii")
             await api.details(payload).then(res => {
@@ -60,7 +67,8 @@ class Books extends Component{
                     authorname: '',
                     bookname: '',
                     price: '',
-                    edition:''
+                    edition:'',
+                    comments:''
                 })
                 console.log('hello')
                 browserHistory.push("/test");

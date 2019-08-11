@@ -1,11 +1,11 @@
 
 import React,{Component} from 'react';
 import clear from '../images/clear.png';
-import sql from '../images/sql.jpg';
+import jk from '../images/jk.jpg';
 import likes from '../images/likes.png';
 import api from '../Api/index';
-import sql1 from '../images/sql1.pdf';
-import sqlwritter from '../images/sqlwritter.jpg';
+import Jnanendra from '../images/Jnanendra.pdf';
+// import sqlwritter from '../images/sqlwritter.jpg';
 import '../CSS/Text.css';
 import { SocialIcon } from 'react-social-icons';
 import browserHistory from "../Utils/browserHistory"
@@ -91,10 +91,10 @@ add=()=>{
                 <div class="box box2">
                 <div id="net" className="row">                      
                     <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"> </div>                          
-                    <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"><img className="cbook" src={sql} alt={"sql"} height="500" width="400" ></img><h3><b>Andrew J</b></h3></div>
+                    <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"><img className="cbook" src={jk} alt={"jk"} height="500" width="400" ></img><h3><b>Jnanendra</b></h3></div>
                     <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"> </div>                          
                     <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"> </div>                          
-                    <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"> <img className="cbook" src={sqlwritter} alt={"swlwritter"} height="200" width="200" ></img>
+                    <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"> 
                     { this.state.Users.map(category => {
                           if(category.authorname==='Andrew J')
                              return (
@@ -110,7 +110,7 @@ add=()=>{
                                    <div>
                                         Comments  : {this.state.Users.map(user => <span>{user.comments}</span>)}
                                     </div> 
-                                  <a href = {sql1} target = "_blank"><b id="read">Read</b></a>
+                                  <a href = {Jnanendra} target = "_blank"><b id="read">Read</b></a>
                   <button className="clickbutton" onClick={this.incrementMe} > Likes:{this.state.count}<img className="netbook" src={likes} alt={"likes"} height="30" width="30" ></img> </button>
                   <input className="input_box" placeholder="write your comments" type='text' name='comments' onChange={this.handleChange}></input>
                   <p className='red'>{this.state.cError}</p>

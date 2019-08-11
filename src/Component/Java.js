@@ -1,11 +1,11 @@
 
 import React,{Component} from 'react';
 import clear from '../images/clear.png';
-import javabook from '../images/javabook.jpg';
+import vivekananda from '../images/vivekananda.jpg';
 import likes from '../images/likes.png';
 import api from '../Api/index';
-import java from '../images/java.pdf';
-import padma from '../images/padma.png';
+import The from '../images/The.pdf';
+import Rakesh from '../images/Rakesh.jpg';
 import '../CSS/Text.css';
 import { SocialIcon } from 'react-social-icons';
 import browserHistory from "../Utils/browserHistory"
@@ -90,10 +90,10 @@ add=()=>{
                 <div class="box box2">
                 <div id="net" className="row">                      
                     <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"> </div>                          
-                    <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"><img className="cbook" src={javabook} alt={"javabook"} height="500" width="400" ></img><h3><b>PadmaReddy</b></h3></div>
+                    <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"><img className="cbook" src={vivekananda} alt={"vivekananda"} height="500" width="400" ></img><h3><b>RakeshTripathi</b></h3></div>
                     <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"> </div>                          
                     <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"> </div>                          
-                    <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"> <img className="cbook" src={padma} alt={"padma"} height="200" width="200" ></img>
+                    <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"> <img className="cbook" src={Rakesh} alt={"Rakesh"} height="200" width="200" ></img>
                     {this.state.Users.map(category => {
                           if(category.authorname==='Padma Reddy') {
                           return (
@@ -110,7 +110,7 @@ add=()=>{
                              Comments  : {this.state.Users.map(user => <span>{user.comments}</span>)}
                            </div> 
                     
-                    <a href = {java} target = "_blank"><b id="read">Read</b></a>  
+                    <a href = {The} target = "_blank"><b id="read">Read</b></a>  
                   <button className="clickbutton" onClick={this.incrementMe} > Likes:{this.state.count}<img className="netbook" src={likes} alt={"likes"} height="30" width="30" ></img> </button>
                   <input className="input_box" placeholder="write your comments" type='text' name='comments' onChange={this.handleChange}></input>
                   <p className='red'>{this.state.cError}</p>

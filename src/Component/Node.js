@@ -110,17 +110,24 @@ add=()=>{
                              <p>{category.bookname}</p>
                              <p>{category.price} </p>
                              <p>{category.edition} </p>
-                             <p>{category.build}</p>
-                        
+                             <p>{category.comments}</p>
                          </div>
                              )}
                              })}
 
-                                <div>
-                                Comments  : {this.state.Users.map(user => <span>
-                                    {user.comments}
-                                </span>)}
-                                </div>         
+                        {this.state.Users.map(category => {
+                            if(category.authorname==='Schwarzmuller') {
+                            return (
+                            <div>
+                            Comments  : {this.state.Users.map(user => <span> {user.comments} </span>)}
+                        </div>
+                            )}
+                            })}
+
+
+                                {/* <div>
+                                Comments  : {this.state.Users.map(user => <span> {user.comments} </span>)}
+                                </div>          */}
                                 <a href = {nodebook} target = "_blank"><b id="read">Read</b></a>
                   <button className="clickbutton" onClick={this.incrementMe} > Likes:{this.state.count}<img className="netbook" src={likes} alt={"likes"} height="30" width="30" ></img> </button>
                   <input className="input_box" placeholder="write your comments" type='text' name='comments' onChange={this.handleChange}></input>

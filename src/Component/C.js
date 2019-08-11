@@ -1,11 +1,11 @@
 
 import React,{Component} from 'react';
 import clear from '../images/clear.png';
-import cbook from '../images/cbook.jpg';
+import geetha1 from '../images/geetha1.jpg';
 import likes from '../images/likes.png';
 import api from '../Api/index';
-import book from '../images/book.pdf';
-import balagurusamy from '../images/balagurusamy.jpg';
+import Bhagavad from '../images/Bhagavad.pdf';
+import prabu from '../images/prabu.jpg';
 import '../CSS/Text.css';
 import { SocialIcon } from 'react-social-icons';
 import browserHistory from "../Utils/browserHistory"
@@ -95,12 +95,12 @@ add=()=>{
                 <div class="box box2">
                 <div id="net" className="row">                      
                     <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"> </div>                          
-                    <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"><img className="cbook" src={cbook} alt={"cbook"} height="500" width="400" ></img><h3><b>Balagurusamy</b></h3></div>
+                    <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"><img className="cbook" src={geetha1} alt={"geetha1"} height="500" width="400" ></img><h3><b>SWAMY PRABHUPADA</b></h3></div>
                     <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"> </div>                          
                     <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"> </div>                          
-                    <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"> <img className="balu" src={balagurusamy} alt={"balagurusamy"} height="200" width="200" ></img>
+                    <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"> <img className="balu" src={prabu} alt={"prabu"} height="200" width="200" ></img>
                     {this.state.Users.map(category => {
-                                            if(category.authorname==='E Balagurusamy') {
+                                            if(category.authorname==='Swamy Prabhupada') {
                                             return (
                                                 <div>
                                                     <p>{category.authorname}</p> 
@@ -115,7 +115,7 @@ add=()=>{
                                                     Comments  : {this.state.Users.map(user => <span>{user.comments}</span>)}
                                              </div> 
                     
-                    <a href = {book} target = "_blank"><b id="read">Read</b></a>
+                    <a href = {Bhagavad} target = "_blank"><b id="read">Read</b></a>
                   <button className="clickbutton" onClick={this.incrementMe} > Likes:{this.state.count}<img className="netbook" src={likes} alt={"likes"} height="30" width="30" ></img> </button>
                   <input className="input_box" placeholder="write your comments" type='text' name='comments' onChange={this.handleChange}></input>
                   <p className='red'>{this.state.cError}</p>

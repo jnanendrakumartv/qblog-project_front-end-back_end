@@ -4,7 +4,7 @@ import clear from '../images/clear.png';
 import srirama from '../images/srirama.jpeg';
 import likes from '../images/likes.png';
 import api from '../Api/index';
-import net1 from '../images/net1.pdf';
+import Ramayana from '../images/Ramayana.pdf';
 import kuvempu from '../images/kuvempu.jpg';
 import '../CSS/Text.css';
 import { SocialIcon } from 'react-social-icons';
@@ -113,7 +113,10 @@ add=()=>{
                                   <div>
                                       Comments  : {this.state.Users.map(user => <span>{user.comments}</span>)}
                                   </div> 
-                        {/* <a href = {net1} target = "_blank"><b id="read">Read</b></a> */}
+
+ 
+
+                        <a href = {Ramayana} target = "_blank"><b id="read">Read</b></a>
 
                   <button className="clickbutton" onClick={this.incrementMe} > Likes:{this.state.count}<img className="netbook" src={likes} alt={"likes"} height="30" width="30" ></img> </button>
                   <input className="input_box" placeholder="write your comments" type='text' name='comments' onChange={this.handleChange}></input>

@@ -4,13 +4,13 @@ import React,{Component} from 'react';
 import clear from '../images/clear.png';
 import srirama from '../images/srirama.jpeg';
 import home from '../images/home.png';
-import cbook from '../images/cbook.jpg';
-import javabook from '../images/javabook.jpg';
+import geetha1 from '../images/geetha1.jpg';
+import vivekananda from '../images/vivekananda.jpg';
 import rc from '../images/rc.png';
 import rx from '../images/rx.png';
 import node from '../images/node.png';
 import cobol1 from '../images/cobol1.png'
-import sql from '../images/sql.jpg';
+import jk from '../images/jk.jpg';
 import '../CSS/Test.css';
 import '../CSS/Books.css';
 import '../CSS/Dash.css';
@@ -116,10 +116,10 @@ handleSubmit40=(e)=> {
             <div className="quotes">     
                 <div class="box box2">
                 <div id="net" className="row">                      
-                    <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3"><img className="netbook" src={srirama} alt={"srirama"} height="200" width="200"  onClick={this.handleSubmit10}  ></img><h3><b>Rajaraman</b></h3> </div>                          
-                    <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3"><img className="cbook" src={cbook} alt={"cbook"} height="200" width="200" onClick={this.handleSubmit3} ></img><h3><b>Balagurusamy</b></h3></div>
-                    <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3"><img className="java" src={javabook} alt={"javabook"} height="200" width="200" onClick={this.handleSubmit12} ></img><h3><b>PadmaReddy</b></h3> </div>                          
-                    <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3"><img className="sqlbook" src={sql} alt={"sql"} height="200" width="200" onClick={this.handleSubmit13} ></img> <h3><b>Andrew</b></h3></div>                                  
+                    <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3"><img className="netbook" src={srirama} alt={"srirama"} height="200" width="200"  onClick={this.handleSubmit10}  ></img><h3><b>KUVEMPU</b></h3> </div>                          
+                    <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3"><img className="cbook" src={geetha1} alt={"geetha1"} height="200" width="200" onClick={this.handleSubmit3} ></img><h3><b>Prabhupada</b></h3></div>
+                    <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3"><img className="java" src={vivekananda} alt={"vivekananda"} height="200" width="200" onClick={this.handleSubmit12} ></img><h3><b>RakeshTripathi</b></h3> </div>                          
+                    <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3"><img className="sqlbook" src={jk} alt={"jk"} height="200" width="200" onClick={this.handleSubmit13} ></img> <h3><b>Jnanendra</b></h3></div>                                  
                 </div>
                 </div>
                 <div class="box box3"><div class="bg"></div>
