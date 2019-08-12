@@ -17,7 +17,7 @@ import axios from 'axios';
 class C extends Component{
     constructor(props) {
         super(props);
-        this.state = { name:"", array:[],  cnt:'', Users: [], comments:'', cError:'' };
+        this.state = { name:"", array:[],  cnt:0, Users: [], comments:'', cError:'' };
     }
 
     incrementMe =async () => {

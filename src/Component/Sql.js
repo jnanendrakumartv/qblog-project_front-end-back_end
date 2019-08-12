@@ -15,8 +15,24 @@ import axios from 'axios';
 class Sql extends Component{
     constructor(props) {
         super(props);
-        this.state = { name:"", array:[],  count:0, Users: [], Comments:'', cError:'' };
+        this.state = { name:"", array:[],  cnt: 0,
+        show: true, Users: [], Comments:'', cError:'' };
+    }   
+    increment =async () => {
+        this.setState({ cnt: this.state.cnt + 1 });
+        var temp=1;
+        temp=temp+1;
+        debugger;
+        this.setState({cnt:temp})
+            const {cnt}=this.state;
+            const payload=temp;
+            await api. increment(payload).then(res=>{
+    
+        })
     }
+    
+
+
     handleSubmit = async () => {
         // debugger;
            const { comments } = this.state
@@ -103,7 +119,7 @@ add=()=>{
                                         Comments  : {this.state.Users.map(user => <span>{user.comments}</span>)}
                                     </div> 
                                   <a href = {Jnanendra} target = "_blank"><b id="read">Read</b></a>
-                  <button className="clickbutton" onClick={this.incrementMe} > Likes:{this.state.count}<img className="netbook" src={likes} alt={"likes"} height="30" width="30" ></img> </button>
+                  <button className="clickbutton" onClick={this.increment}> Likes:<h4>{ this.state.cnt } </h4><img className="netbook" src={likes} alt={"likes"} height="30" width="30" ></img> </button> 
                   <input className="input_box" placeholder="write your comments" type='text' name='comments' onChange={this.handleChange}></input>
                   <p className='red'>{this.state.cError}</p>
                   <button className="submitbutton" onClick={this.handleSubmit} ><b>Submit</b></button>
