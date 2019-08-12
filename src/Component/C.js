@@ -13,11 +13,25 @@ import axios from 'axios';
 
 
 
+
 class C extends Component{
     constructor(props) {
         super(props);
-        this.state = { name:"", array:[],  count:0, Users: [], comments:'', cError:'' };
+        this.state = { name:"", array:[],  cnt:'', Users: [], comments:'', cError:'' };
     }
+
+    incrementMe =async () => {
+        var temp=1;
+        temp=temp+1;
+        debugger;
+        this.setState({cnt:temp})
+            const {cnt}=this.state;
+            const payload=temp;
+            await api.increment(payload).then(res=>{
+    
+        })
+    }
+    
     handleSubmit = async () => {
         // debugger;
            const { comments } = this.state
@@ -60,13 +74,16 @@ add=()=>{
     this.state.arry.push(this.state.name);
     this.setState({array:this.state.array});  
 }
+
+
   
-    incrementMe = () => {
-        let newCount = this.state.count + 1
-        this.setState({
-          count: newCount
-        })
-      }
+  
+    // incrementMe = () => {
+    //     let newCount = this.state.count + 1
+    //     this.setState({
+    //       count: newCount
+    //     })
+    //   }
     
       handleSubmit4=(event)=> {
         browserHistory.push("/");
