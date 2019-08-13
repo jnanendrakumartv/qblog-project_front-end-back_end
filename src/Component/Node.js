@@ -16,9 +16,17 @@ class Node extends Component{
         super(props);
         this.state = { name:'',
          array:[], 
-         count:0, 
+         count:1, 
          Users: [],
          comments:'', cError:'', };
+    }
+    incrementMe =async () => {
+        debugger;
+            const count=this.state;
+            const payload=count;
+            await api.increment(payload).then(res=>{
+                this.setState({count:this.state.count+1})
+        })
     }
     handleSubmit = async () => {
         // debugger;
@@ -56,28 +64,18 @@ class Node extends Component{
         console.log(this.state.Users);
         });
         }
-  
-
-
-add=()=>{
-    this.state.arry.push(this.state.name);
-    this.setState({array:this.state.array});  
-}
-  
-    incrementMe = () => {
-        let newCount = this.state.count + 1
-        this.setState({
-          count: newCount
-        })
-      }
+        add=()=>{
+            this.state.arry.push(this.state.name);
+            this.setState({array:this.state.array});  
+        }
     
-    handleSubmit4=(event)=> {
-        browserHistory.push("/");
-    }
-    handleSubmit1=(event)=> {
-        browserHistory.push("/test");
-    }
-    
+            handleSubmit4=(event)=> {
+                browserHistory.push("/");
+            }
+            handleSubmit1=(event)=> {
+                browserHistory.push("/test");
+            }
+            
     render(){
         return(
             <div>
@@ -108,20 +106,10 @@ add=()=>{
                              )}
                              })}
 
-                        {this.state.Users.map(category => {
-                            if(category.authorname==='Schwarzmuller') {
-                            return (
-                            <div>
-                            Comments  : {this.state.Users.map(user => <div> {user.comments} </div>)}
-                        </div>
-                            )}
-                            })}
-
-
-                                {/* <div>
-                                Comments  : {this.state.Users.map(user => <span> {user.comments} </span>)}
-                                </div>          */}
-                                <a href = {nodebook} target = "_blank"><b id="read">Read</b></a>
+                                <div>
+                                    Comments  : {this.state.Users.map(user => <span> {user.comments} </span>)}
+                                </div>         
+                                                                <a href = {nodebook} target = "_blank"><b id="read">Read</b></a>
                   <button className="clickbutton" onClick={this.incrementMe} > Likes:{this.state.count}<img className="netbook" src={likes} alt={"likes"} height="30" width="30" ></img> </button>
                   <input className="input_box" placeholder="write your comments" type='text' name='comments' onChange={this.handleChange}></input>
                   <p className='red'>{this.state.cError}</p>

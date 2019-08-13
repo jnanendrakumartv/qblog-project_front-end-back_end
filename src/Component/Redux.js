@@ -14,8 +14,17 @@ import axios from 'axios';
 class Redux extends Component{
     constructor(props) {
         super(props);
-        this.state = { name:"", array:[],  count:0,Users: [], comments:'', cError:'' };
+        this.state = { name:"", array:[],  count:1, Users: [], comments:'', cError:'' };
     }
+    incrementMe =async () => {
+        debugger;
+            const count=this.state;
+            const payload=count;
+            await api.increment(payload).then(res=>{
+                this.setState({count:this.state.count+1})
+        })
+    }
+    
     handleSubmit = async () => {
         // debugger;
            const { comments } = this.state
@@ -51,18 +60,11 @@ class Redux extends Component{
         console.log(this.state.Users);
         });
         }
-add=()=>{
-    this.state.arry.push(this.state.name);
-    this.setState({array:this.state.array});  
-}
+            add=()=>{
+                this.state.arry.push(this.state.name);
+                this.setState({array:this.state.array});  
+            }
   
-    incrementMe = () => {
-        let newCount = this.state.count + 1
-        this.setState({
-          count: newCount
-        })
-      }
-    
       handleSubmit4=(event)=> {
         browserHistory.push("/");
     }

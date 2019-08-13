@@ -30,8 +30,6 @@ class Sql extends Component{
     
         })
     }
-    
-
 
     handleSubmit = async () => {
         // debugger;

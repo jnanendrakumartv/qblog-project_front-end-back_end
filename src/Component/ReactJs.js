@@ -15,7 +15,15 @@ import axios from 'axios';
 class ReactJs extends Component{
     constructor(props) {
         super(props);
-        this.state = { name:"", array:[],  count:0, Users: [], comments:'', cError:'' };
+        this.state = { name:"", array:[],   count:1, Users: [], comments:'', cError:'' };
+    }
+    incrementMe =async () => {
+        debugger;
+            const count=this.state;
+            const payload=count;
+            await api.increment(payload).then(res=>{
+                this.setState({count:this.state.count+1})
+        })
     }
     handleSubmit = async () => {
         // debugger;

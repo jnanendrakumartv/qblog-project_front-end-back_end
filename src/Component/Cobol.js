@@ -14,7 +14,15 @@ import axios from 'axios';
 class Cobol extends Component{
     constructor(props) {
         super(props);
-        this.state = { name:"", array:[],  count:0,Users: [], comments:'', cError:'' };
+        this.state = { name:"", array:[],  count:1, Users: [], comments:'', cError:'' };
+    }
+    incrementMe =async () => {
+        debugger;
+            const count=this.state;
+            const payload=count;
+            await api.increment(payload).then(res=>{
+                this.setState({count:this.state.count+1})
+        })
     }
     handleSubmit = async () => {
         // debugger;
@@ -60,13 +68,6 @@ add=()=>{
     this.state.arry.push(this.state.name);
     this.setState({array:this.state.array});  
 }
-  
-    incrementMe = () => {
-        let newCount = this.state.count + 1
-        this.setState({
-          count: newCount
-        })
-      }
     
       handleSubmit4=(event)=> {
         browserHistory.push("/");
@@ -103,9 +104,10 @@ add=()=>{
                          </div>
                              )}
                              })}
-                           <div>
-                             Comments  : {this.state.Users.map(user => <div>{user.comments}</div>)}
-                           </div> 
+                           
+                            <div>
+                                Comments  : {this.state.Users.map(user => <div>{user.comments}</div>)}
+                            </div> 
                            <a href = {cobolbook} target = "_blank"><b id="read">Read</b></a> 
                   <button className="clickbutton" onClick={this.incrementMe} > Likes:{this.state.count}<img className="netbook" src={likes} alt={"likes"} height="30" width="30" ></img> </button>
                   <input className="input_box" placeholder="write your comments" type='text' name='comments' onChange={this.handleChange}></input>

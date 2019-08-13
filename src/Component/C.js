@@ -15,7 +15,7 @@ import axios from 'axios';
 class C extends Component{
     constructor(props) {
         super(props);
-        this.state = { name:"", array:[],  count:1, Users: [], cError:'', comments:'', page:'c'};
+        this.state = { name:"", array:[],  count:1, Users: [], cError:'', comments:''};
     }
     incrementMe =async () => {
         debugger;
@@ -28,8 +28,8 @@ class C extends Component{
     
     handleSubmit = async () => {
         // debugger;
-           const { comments, page } = this.state
-           const payload = { comments, page }
+           const { comments} = this.state
+           const payload = { comments }
            
            let t=0;
            if(!this.state.comments) this.setState({cError:''});
@@ -114,20 +114,10 @@ add=()=>{
                                                )}
                                                })}
 
- <div> Comments  : {this.state.Users.map(user => <div>{user.comments}</div>)}</div>
-
-                                    {this.state.Users.map(category => {
-                                        if(category.page==='c') {
-                                        return (
-                                            <div>  <p>{category.comments}</p> </div>
-                                            // <div> Comments  : {this.state.Users.map(user => <div>{user.comments}</div>)}</div>
-                                        )}
-                                        })}
-
-{/* 
-                                               <div>
-                                               <p>{category.comments}</p> 
-                                             </div>  */}
+                                        <div>
+                                        Comments  : {this.state.Users.map(user => <div>{user.comments}</div>)}
+                                    </div> 
+                                   
                     
                     <a href = {Bhagavad} target = "_blank"><b id="read">Read</b></a>
                   <button className="clickbutton" onClick={this.incrementMe} > Likes:{this.state.count}<img className="netbook" src={likes} alt={"likes"} height="30" width="30" ></img> </button>
