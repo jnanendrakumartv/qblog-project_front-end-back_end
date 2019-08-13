@@ -112,7 +112,7 @@ add=()=>{
                             if(category.authorname==='Schwarzmuller') {
                             return (
                             <div>
-                            Comments  : {this.state.Users.map(user => <span> {user.comments} </span>)}
+                            Comments  : {this.state.Users.map(user => <div> {user.comments} </div>)}
                         </div>
                             )}
                             })}

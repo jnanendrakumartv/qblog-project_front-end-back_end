@@ -12,34 +12,27 @@ import browserHistory from "../Utils/browserHistory"
 import axios from 'axios';
 
 
-
-
 class C extends Component{
     constructor(props) {
         super(props);
-        this.state = { name:"", array:[],  cnt:0, Users: [], comments:'', cError:'' };
+        this.state = { name:"", array:[],  count:1, Users: [], cError:'', comments:'', page:'c'};
     }
-
     incrementMe =async () => {
-        var temp=1;
-        temp=temp+1;
         debugger;
-        this.setState({cnt:temp})
-            const {cnt}=this.state;
-            const payload=temp;
+            const count=this.state;
+            const payload=count;
             await api.increment(payload).then(res=>{
-    
+                this.setState({count:this.state.count+1})
         })
     }
     
     handleSubmit = async () => {
         // debugger;
-           const { comments } = this.state
-           const payload = { comments }
+           const { comments, page } = this.state
+           const payload = { comments, page }
            
            let t=0;
            if(!this.state.comments) this.setState({cError:''});
-           // else if(!reg_price.test(this.state.authorname)) this.setState({aError:''});
            else{
                 t++;
                 this.setState({cError:''});
@@ -52,9 +45,9 @@ class C extends Component{
                    })
                    console.log('hello')
                    browserHistory.push("/c");
-               });
-           }       
-       }
+                            });
+                        }       
+                   }
        handleChange=(e)=>{
            this.setState({[e.target.name]:e.target.value});
        }
@@ -117,13 +110,24 @@ add=()=>{
                                                     <p>{category.bookname}</p> 
                                                     <p>{category.price}</p>
                                                     <p>{category.edition}</p>
-                                                    <p>{category.published}</p>
                                                </div>
                                                )}
                                                })}
+
+ <div> Comments  : {this.state.Users.map(user => <div>{user.comments}</div>)}</div>
+
+                                    {this.state.Users.map(category => {
+                                        if(category.page==='c') {
+                                        return (
+                                            <div>  <p>{category.comments}</p> </div>
+                                            // <div> Comments  : {this.state.Users.map(user => <div>{user.comments}</div>)}</div>
+                                        )}
+                                        })}
+
+{/* 
                                                <div>
-                                                    Comments  : {this.state.Users.map(user => <span>{user.comments}</span>)}
-                                             </div> 
+                                               <p>{category.comments}</p> 
+                                             </div>  */}
                     
                     <a href = {Bhagavad} target = "_blank"><b id="read">Read</b></a>
                   <button className="clickbutton" onClick={this.incrementMe} > Likes:{this.state.count}<img className="netbook" src={likes} alt={"likes"} height="30" width="30" ></img> </button>

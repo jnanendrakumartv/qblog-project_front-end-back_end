@@ -100,12 +100,11 @@ add=()=>{
                              <p>{category.bookname}</p> 
                              <p>{category.price}</p>
                              <p>{category.edition}</p>
-                             <p>{category.published}</p>
                          </div>
                              )}
                              })}
                            <div>
-                             Comments  : {this.state.Users.map(user => <span>{user.comments}</span>)}
+                             Comments  : {this.state.Users.map(user => <div>{user.comments}</div>)}
                            </div> 
                            <a href = {cobolbook} target = "_blank"><b id="read">Read</b></a> 
                   <button className="clickbutton" onClick={this.incrementMe} > Likes:{this.state.count}<img className="netbook" src={likes} alt={"likes"} height="30" width="30" ></img> </button>
