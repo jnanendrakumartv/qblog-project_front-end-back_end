@@ -2,6 +2,7 @@
 import React,{Component} from 'react';
 import clear from '../images/clear.png';
 import geetha1 from '../images/geetha1.jpg';
+import home from '../images/home.png';
 import likes from '../images/likes.png';
 import api from '../Api/index';
 import Bhagavad from '../images/Bhagavad.pdf';
@@ -24,6 +25,9 @@ class C extends Component{
             await api.increment(payload).then(res=>{
                 this.setState({count:this.state.count+1})
         })
+    }
+    handleSubmit40=(e)=> {
+        browserHistory.push("/test");
     }
     
     handleSubmit = async () => {
@@ -96,7 +100,7 @@ add=()=>{
                 </div></div>
             </div>
             <div className="quotes">     
-                <div class="box box2">
+                <div class="box box2"><img className="home" src={home} alt={"home"} height="30" width="30" onClick={this.handleSubmit40}></img> 
                 <div id="net" className="row">                      
                     <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"> </div>                          
                     <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"><img className="cbook" src={geetha1} alt={"geetha1"} height="500" width="400" ></img><h3><b>SWAMY PRABHUPADA</b></h3></div>

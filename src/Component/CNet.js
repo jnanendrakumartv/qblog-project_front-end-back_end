@@ -3,6 +3,7 @@ import clear from '../images/clear.png';
 import srirama from '../images/srirama.jpeg';
 import likes from '../images/likes.png';
 import api from '../Api/index';
+import home from '../images/home.png';
 import Ramayana from '../images/Ramayana.pdf';
 import kuvempu from '../images/kuvempu.jpg';
 import '../CSS/Text.css';
@@ -23,6 +24,10 @@ class CNet extends Component{
                 this.setState({count:this.state.count+1})
         })
     }
+    handleSubmit40=(e)=> {
+        browserHistory.push("/test");
+    }
+    
     handleSubmit = async () => {
         // debugger;
            const { comments } = this.state
@@ -82,7 +87,7 @@ class CNet extends Component{
             </div>
         </div>
             <div className="quotes">     
-                <div class="box box2">
+                <div class="box box2"><img className="home" src={home} alt={"home"} height="30" width="30" onClick={this.handleSubmit40}></img>
                 <div id="net" className="row">                      
                     <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"> </div>                          
                       <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"><img className="cbook" src={srirama} alt={"srirama"} height="500" width="400" ></img><h3><b>Kuvempu</b></h3></div>

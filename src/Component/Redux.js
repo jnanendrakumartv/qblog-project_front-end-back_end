@@ -4,6 +4,7 @@ import clear from '../images/clear.png';
 import rx from '../images/rx.png';
 import likes from '../images/likes.png';
 import redux1 from '../images/redux1.pdf';
+import home from '../images/home.png';
 import api from '../Api/index';
 import rd from '../images/rd.jpg';
 import '../CSS/Text.css';
@@ -23,6 +24,9 @@ class Redux extends Component{
             await api.increment(payload).then(res=>{
                 this.setState({count:this.state.count+1})
         })
+    }
+    handleSubmit40=(e)=> {
+        browserHistory.push("/test");
     }
     
     handleSubmit = async () => {
@@ -82,7 +86,7 @@ class Redux extends Component{
             </div>
 
             <div className="quotes">     
-                <div class="box box2">
+                <div class="box box2"><img className="home" src={home} alt={"home"} height="30" width="30" onClick={this.handleSubmit40}></img>
                 <div id="net" className="row">                      
                     <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"> </div>                          
                     <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"><img className="cbook" src={rx} alt={"rx"} height="500" width="400" ></img><h3><b>Maximilian</b></h3></div>

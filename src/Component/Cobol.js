@@ -3,6 +3,7 @@ import clear from '../images/clear.png';
 import cobol1 from '../images/cobol1.png';
 import cobolbook from '../images/cobolbook.pdf';
 import likes from '../images/likes.png';
+import home from '../images/home.png';
 import api from '../Api/index';
 import cobal1 from '../images/cobal1.jpg';
 import '../CSS/Text.css';
@@ -23,6 +24,9 @@ class Cobol extends Component{
             await api.increment(payload).then(res=>{
                 this.setState({count:this.state.count+1})
         })
+    }
+    handleSubmit40=(e)=> {
+        browserHistory.push("/test");
     }
     handleSubmit = async () => {
         // debugger;
@@ -87,7 +91,7 @@ add=()=>{
             </div>
 
             <div className="quotes">     
-                <div class="box box2">
+                <div class="box box2"><img className="home" src={home} alt={"home"} height="30" width="30" onClick={this.handleSubmit40}></img>
                 <div id="net" className="row">                      
                     <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"> </div>                          
                     <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"><img className="cbook" src={cobol1} alt={"cobol1"} height="500" width="400" ></img><h3><b>ThaneHubbeli</b></h3></div>

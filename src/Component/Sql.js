@@ -4,6 +4,7 @@ import clear from '../images/clear.png';
 import jk from '../images/jk.jpg';
 import likes from '../images/likes.png';
 import api from '../Api/index';
+import home from '../images/home.png';
 import Jnanendra from '../images/Jnanendra.pdf';
 import jnani from '../images/jnani.jpg';
 import '../CSS/Text.css';
@@ -30,7 +31,9 @@ class Sql extends Component{
     
         })
     }
-
+    handleSubmit40=(e)=> {
+        browserHistory.push("/test");
+    }
     handleSubmit = async () => {
         // debugger;
            const { comments } = this.state
@@ -95,7 +98,7 @@ add=()=>{
                 </div></div>
             </div>
             <div className="quotes">     
-                <div class="box box2">
+                <div class="box box2"><img className="home" src={home} alt={"home"} height="30" width="30" onClick={this.handleSubmit40}></img>
                 <div id="net" className="row">                      
                     <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"> </div>                          
                     <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"><img className="cbook" src={jk} alt={"jk"} height="500" width="400" ></img><h3><b>Jnanendra</b></h3></div>

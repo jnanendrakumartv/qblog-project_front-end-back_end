@@ -3,6 +3,7 @@ import React,{Component} from 'react';
 import clear from '../images/clear.png';
 import '../CSS/Text.css';
 import '../CSS/Dash.css';
+import next from '../images/next.png';
 import api from '../Api/index';
 import { SocialIcon } from 'react-social-icons';
 import browserHistory from "../Utils/browserHistory"
@@ -23,7 +24,9 @@ class Books extends Component{
             eError:'',
         }
     }
-    
+    handleSubmit40=(e)=> {
+        browserHistory.push("/test");
+    }
     handleSubmit = async () => {
     //  debugger;
         const { authorname,bookname,price,edition,comments } = this.state
@@ -101,8 +104,9 @@ class Books extends Component{
                    <p className='red'>{this.state.eError}</p>
                    <button className="submitbutton" onClick={this.handleSubmit} ><b>Submit</b></button>          
                    </div>  
-                    </div> <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6"></div>                               
-            </div> </div>
+                    </div> <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6"></div><img className="home" src={next} alt={"next"} height="30" width="30" onClick={this.handleSubmit40}></img>                              
+            </div> 
+             </div>
 
 
             <div className="footer"><div className="element">

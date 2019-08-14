@@ -53,7 +53,7 @@ class Signin extends Component{
         if(temp>1){ 
             
             this.props.LOGIN();
-            browserHistory.push('/test');
+            browserHistory.push('/books');
         }
     }
     

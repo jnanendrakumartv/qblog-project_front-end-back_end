@@ -108,14 +108,14 @@ handleSubmit40=(e)=> {
                 <div id="d" className="col-xs-1 col-sm-1 col-md-1 col-lg-1">
                     {/* <button className="solutionbutton">Solutions</button> */}
                     </div>
-                    <img className="home" src={home} alt={"home"} height="30" width="30" onClick={this.handleSubmit40}></img>
+                    
                 </div>
                 </div>
             </div>
 
             <div className="quotes">     
                 <div class="box box2">
-                <div id="net" className="row">                      
+                <div id="net" className="row">                     
                     <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3"><img className="netbook" src={srirama} alt={"srirama"} height="200" width="200"  onClick={this.handleSubmit10}  ></img><h3><b>KUVEMPU</b></h3> </div>                          
                     <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3"><img className="cbook" src={geetha1} alt={"geetha1"} height="200" width="200" onClick={this.handleSubmit3} ></img><h3><b>Prabhupada</b></h3></div>
                     <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3"><img className="java" src={vivekananda} alt={"vivekananda"} height="200" width="200" onClick={this.handleSubmit12} ></img><h3><b>RakeshTripathi</b></h3> </div>                          
@@ -128,7 +128,8 @@ handleSubmit40=(e)=> {
                 <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3"><img className="reduxbook" src={rx} alt={"rx"} height="200" width="200" onClick={this.handleSubmit15} ></img><h3><b>Maximilian</b></h3></div>
                 <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3"><img className="noodebook" src={node} alt={"node"} height="200" width="200" onClick={this.handleSubmit16} ></img><h3><b>Schwarzmuller</b></h3> </div>                          
                 <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3"><img className="cobolbook" src={cobol1} alt={"cobol1"} height="200" width="200" onClick={this.handleSubmit11}></img> <h3><b>ThaneHubbeli</b></h3></div>                                  
-                </div>
+               
+                </div> <img className="home" src={home} alt={"home"} height="30" width="30" onClick={this.handleSubmit40}></img> 
                </div>
          
             </div>
