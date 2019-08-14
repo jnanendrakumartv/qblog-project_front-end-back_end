@@ -19,6 +19,7 @@ class Node extends Component{
          array:[], 
          count:1, 
          Users: [],
+         NUsers:[],
          comments:'', cError:'', };
     }
     incrementMe =async () => {
@@ -27,6 +28,7 @@ class Node extends Component{
             const payload=count;
             await api.increment(payload).then(res=>{
                 this.setState({count:this.state.count+1})
+                browserHistory.push("/node");
         })
     }
     handleSubmit40=(e)=> {
@@ -59,15 +61,21 @@ class Node extends Component{
            this.setState({[e.target.name]:e.target.value});
        }
 
-    componentDidMount(){
+       componentDidMount(){
         axios.get('http://localhost:9000/details')
-        
         .then(res => {
-     
         this.setState({Users: res.data});
         console.log(this.state.Users);
         });
+   
+        axios.get('http://localhost:9000/like')
+        .then(res => {
+        this.setState({NUsers: res.data});
+        console.log(this.state.NUsers);
+        });
+   
         }
+   
         add=()=>{
             this.state.arry.push(this.state.name);
             this.setState({array:this.state.array});  
@@ -81,6 +89,7 @@ class Node extends Component{
             }
             
     render(){
+        var like=0;
         return(
             <div>
             <div className="Header"> <div className="element">
@@ -113,8 +122,13 @@ class Node extends Component{
                                 <div>
                                     Comments  : {this.state.Users.map(user => <span> {user.comments} </span>)}
                                 </div>         
-                                                                <a href = {nodebook} target = "_blank"><b id="read">Read</b></a>
-                  <button className="clickbutton" onClick={this.incrementMe} > Likes:{this.state.count}<img className="netbook" src={likes} alt={"likes"} height="30" width="30" ></img> </button>
+                     <a href = {nodebook} target = "_blank"><b id="read">Read</b></a>
+                     {this.state.NUsers.sersmap(category => {
+                      if(category.count)
+                        like=like+1;
+                             })}
+                  <button className="clickbutton" onClick={this.incrementMe} > Likes:{like}
+                  <img className="netbook" src={likes} alt={"likes"} height="30" width="30" ></img> </button>
                   <input className="input_box" placeholder="write your comments" type='text' name='comments' onChange={this.handleChange}></input>
                   <p className='red'>{this.state.cError}</p>
                   <button className="submitbutton" onClick={this.handleSubmit} ><b>Submit</b></button>

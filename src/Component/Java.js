@@ -16,7 +16,7 @@ import axios from 'axios';
 class Java extends Component{
     constructor(props) {
         super(props);
-        this.state = { name:"", array:[],  count:1, Users: [], comments:'', cError:'' };
+        this.state = { name:"", array:[],  count:1, Users: [], JUsers:[], comments:'', cError:'' };
     }
     incrementMe =async () => {
         debugger;
@@ -24,6 +24,7 @@ class Java extends Component{
             const payload=count;
             await api.increment(payload).then(res=>{
                 this.setState({count:this.state.count+1})
+                browserHistory.push("/java"); 
         })
     }
     handleSubmit40=(e)=> {
@@ -54,15 +55,24 @@ class Java extends Component{
        handleChange=(e)=>{
            this.setState({[e.target.name]:e.target.value});
        }
+       handleChange=(e)=>{
+        this.setState({[e.target.name]:e.target.value});
+    }
     componentDidMount(){
-        axios.get('http://localhost:9000/details')
-        
-        .then(res => {
-     
-        this.setState({Users: res.data});
-        console.log(this.state.Users);
-        });
-        }
+     axios.get('http://localhost:9000/details')
+     .then(res => {
+     this.setState({Users: res.data});
+     console.log(this.state.Users);
+     });
+
+     axios.get('http://localhost:9000/like')
+     .then(res => {
+     this.setState({JUsers: res.data});
+     console.log(this.state.JUsers);
+     });
+
+     }
+
 
 add=()=>{
     this.state.arry.push(this.state.name);
@@ -76,6 +86,7 @@ add=()=>{
     }
   
     render(){
+        var like=0;
         return(
             <div >
                 <div className="Header"> <div className="element">
@@ -109,7 +120,12 @@ add=()=>{
                            </div> 
                     
                     <a href = {The} target = "_blank"><b id="read">Read</b></a>  
-                  <button className="clickbutton" onClick={this.incrementMe} > Likes:{this.state.count}<img className="netbook" src={likes} alt={"likes"} height="30" width="30" ></img> </button>
+                    {this.state.JUsers.sersmap(category => {
+                      if(category.count)
+                        like=like+1;
+                             })}
+                  <button className="clickbutton" onClick={this.incrementMe} > Likes:{like}
+                  <img className="netbook" src={likes} alt={"likes"} height="30" width="30" ></img> </button>
                   <input className="input_box" placeholder="write your comments" type='text' name='comments' onChange={this.handleChange}></input>
                   <p className='red'>{this.state.cError}</p>
                   <button className="submitbutton" onClick={this.handleSubmit} ><b>Submit</b></button>

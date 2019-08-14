@@ -17,18 +17,15 @@ class Sql extends Component{
     constructor(props) {
         super(props);
         this.state = { name:"", array:[],  cnt: 0,
-        show: true, Users: [], Comments:'', cError:'' };
+        show: true, Users: [],SUsers:[], Comments:'', cError:'' };
     }   
-    increment =async () => {
-        this.setState({ cnt: this.state.cnt + 1 });
-        var temp=1;
-        temp=temp+1;
+    incrementMe =async () => {
         debugger;
-        this.setState({cnt:temp})
-            const {cnt}=this.state;
-            const payload=temp;
-            await api. increment(payload).then(res=>{
-    
+            const count=this.state;
+            const payload=count;
+            await api.increment(payload).then(res=>{
+                this.setState({count:this.state.count+1})
+                browserHistory.push("/sql");   
         })
     }
     handleSubmit40=(e)=> {
@@ -59,19 +56,25 @@ class Sql extends Component{
        handleChange=(e)=>{
            this.setState({[e.target.name]:e.target.value});
        }
-    componentDidMount(){
+       componentDidMount(){
         axios.get('http://localhost:9000/details')
-        
         .then(res => {
-     
         this.setState({Users: res.data});
         console.log(this.state.Users);
         });
+
+        axios.get('http://localhost:9000/like')
+        .then(res => {
+        this.setState({SUsers: res.data});
+        console.log(this.state.SUsers);
+        });
+
         }
-add=()=>{
-    this.state.arry.push(this.state.name);
-    this.setState({array:this.state.array});  
-}
+
+        add=()=>{
+            this.state.arry.push(this.state.name);
+            this.setState({array:this.state.array});  
+        }
   
     incrementMe = () => {
         let newCount = this.state.count + 1
@@ -89,6 +92,7 @@ add=()=>{
     
   
     render(){
+        var like=0;
         return(
             <div >
                 <div className="Header"> <div className="element">
@@ -120,7 +124,12 @@ add=()=>{
                                         Comments  : {this.state.Users.map(user => <div>{user.comments}</div>)}
                                     </div> 
                                   <a href = {Jnanendra} target = "_blank"><b id="read">Read</b></a>
-                  <button className="clickbutton" onClick={this.increment}> Likes:<h4>{ this.state.cnt } </h4><img className="netbook" src={likes} alt={"likes"} height="30" width="30" ></img> </button> 
+                                  {this.state.SUsers.map(category => {
+                                            if(category.count)
+                                                like=like+1;
+                                                    })}
+                  <button className="clickbutton" onClick={this.increment}> Likes:  {like }              
+                  <img className="netbook" src={likes} alt={"likes"} height="30" width="30" ></img> </button> 
                   <input className="input_box" placeholder="write your comments" type='text' name='comments' onChange={this.handleChange}></input>
                   <p className='red'>{this.state.cError}</p>
                   <button className="submitbutton" onClick={this.handleSubmit} ><b>Submit</b></button>

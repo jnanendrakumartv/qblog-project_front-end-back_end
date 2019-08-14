@@ -1,4 +1,3 @@
-
 import React,{Component} from 'react';
 import clear from '../images/clear.png';
 import geetha1 from '../images/geetha1.jpg';
@@ -16,7 +15,7 @@ import axios from 'axios';
 class C extends Component{
     constructor(props) {
         super(props);
-        this.state = { name:"", array:[],  count:1, Users: [], cError:'', comments:''};
+        this.state = { name:"", array:[],  count:1, Users: [], Users1:[], cError:'', comments:''};
     }
     incrementMe =async () => {
         debugger;
@@ -24,6 +23,7 @@ class C extends Component{
             const payload=count;
             await api.increment(payload).then(res=>{
                 this.setState({count:this.state.count+1})
+                browserHistory.push("/c");   
         })
     }
     handleSubmit40=(e)=> {
@@ -56,25 +56,25 @@ class C extends Component{
            this.setState({[e.target.name]:e.target.value});
        }
   
-    componentDidMount(){
+       componentDidMount(){
         axios.get('http://localhost:9000/details')
-        
         .then(res => {
-     
         this.setState({Users: res.data});
         console.log(this.state.Users);
         });
+
+        axios.get('http://localhost:9000/like')
+        .then(res => {
+        this.setState({Users1: res.data});
+        console.log(this.state.Users1);
+        });
+
         }
-
-
-add=()=>{
-    this.state.arry.push(this.state.name);
-    this.setState({array:this.state.array});  
-}
-
-
-  
-  
+    
+            add=()=>{
+                this.state.arry.push(this.state.name);
+                this.setState({array:this.state.array});  
+            }
     // incrementMe = () => {
     //     let newCount = this.state.count + 1
     //     this.setState({
@@ -91,6 +91,7 @@ add=()=>{
     
   
     render(){
+        var like=0;
         return(
             <div >
                 <div className="Header"> <div className="element">
@@ -106,25 +107,30 @@ add=()=>{
                     <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"><img className="cbook" src={geetha1} alt={"geetha1"} height="500" width="400" ></img><h3><b>SWAMY PRABHUPADA</b></h3></div>
                     <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3"> </div>                                                    
                     <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"> <img className="balu" src={prabu} alt={"prabu"} height="200" width="200" ></img>
-                    {this.state.Users.map(category => {
-                                            if(category.authorname==='Swamy Prabhupada') {
-                                            return (
-                                                <div>
-                                                    <p>{category.authorname}</p> 
-                                                    <p>{category.bookname}</p> 
-                                                    <p>{category.price}</p>
-                                                    <p>{category.edition}</p>
-                                               </div>
-                                               )}
-                                               })}
-
-                                        <div>
-                                        Comments  : {this.state.Users.map(user => <div>{user.comments}</div>)}
-                                    </div> 
+                   
+                    { this.state.Users.map(category => {
+                          if(category.authorname==='Swamy Prabhupada'){
+                             return (
+                                 <div>
+                                    <p>{category.authorname}</p> 
+                                    <p>{category.bookname}</p> 
+                                    <p>{category.price}</p>
+                                    <p>{category.edition}</p>
+                                 </div>
+                                    )}
+                                  })}
+                                 <div>
+                                    Comments  : {this.state.Users.map(user => <div>{user.comments}</div>)}
+                                </div> 
                                    
                     
                     <a href = {Bhagavad} target = "_blank"><b id="read">Read</b></a>
-                  <button className="clickbutton" onClick={this.incrementMe} > Likes:{this.state.count}<img className="netbook" src={likes} alt={"likes"} height="30" width="30" ></img> </button>
+                    {this.state.Users1.map(category => {
+                      if(category.count)
+                        like=like+1;
+                             })}
+                  <button className="clickbutton" onClick={this.incrementMe} > Likes:{like}      
+                  <img className="netbook" src={likes} alt={"likes"} height="30" width="30" ></img> </button>
                   <input className="input_box" placeholder="write your comments" type='text' name='comments' onChange={this.handleChange}></input>
                   <p className='red'>{this.state.cError}</p>
                   <button className="submitbutton" onClick={this.handleSubmit} ><b>Submit</b></button>

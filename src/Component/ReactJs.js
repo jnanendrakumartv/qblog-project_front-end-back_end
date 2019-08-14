@@ -16,7 +16,7 @@ import axios from 'axios';
 class ReactJs extends Component{
     constructor(props) {
         super(props);
-        this.state = { name:"", array:[],   count:1, Users: [], comments:'', cError:'' };
+        this.state = { name:"", array:[],   count:1, Users: [], RUsers:[], comments:'', cError:'' };
     }
     incrementMe =async () => {
         debugger;
@@ -24,6 +24,7 @@ class ReactJs extends Component{
             const payload=count;
             await api.increment(payload).then(res=>{
                 this.setState({count:this.state.count+1})
+                browserHistory.push("/c"); 
         })
     }
     handleSubmit40=(e)=> {
@@ -54,19 +55,27 @@ class ReactJs extends Component{
        handleChange=(e)=>{
            this.setState({[e.target.name]:e.target.value});
        }
-    componentDidMount(){
+
+       componentDidMount(){
         axios.get('http://localhost:9000/details')
-        
         .then(res => {
-     
         this.setState({Users: res.data});
         console.log(this.state.Users);
         });
+
+        axios.get('http://localhost:9000/like')
+        .then(res => {
+        this.setState({RUsers: res.data});
+        console.log(this.state.RUsers);
+        });
+
         }
-add=()=>{
-    this.state.arry.push(this.state.name);
-    this.setState({array:this.state.array});  
-}
+
+
+        add=()=>{
+            this.state.arry.push(this.state.name);
+            this.setState({array:this.state.array});  
+        }
   
     incrementMe = () => {
         let newCount = this.state.count + 1
@@ -82,6 +91,7 @@ add=()=>{
         browserHistory.push("/test");
     }
     render(){
+        var like=0;
         return(
             <div >
                 <div className="Header"> <div className="element">
@@ -114,7 +124,12 @@ add=()=>{
                                         Comments  : {this.state.Users.map(user => <div>{user.comments}</div>)}
                                     </div> 
                       <a href = {react1} target = "_blank"><b id="read">Read</b></a>
-                  <button className="clickbutton" onClick={this.incrementMe} > Likes:{this.state.count}<img className="netbook" src={likes} alt={"likes"} height="30" width="30" ></img> </button>
+                      {this.state.RUsers.map(category => {
+                      if(category.count)
+                        like=like+1;
+                             })}
+                  <button className="clickbutton" onClick={this.incrementMe} > Likes:{like}
+                  <img className="netbook" src={likes} alt={"likes"} height="30" width="30" ></img> </button>
                   <input className="input_box" placeholder="write your comments" type='text' name='comments' onChange={this.handleChange}></input>
                   <p className='red'>{this.state.cError}</p>
                   <button className="submitbutton" onClick={this.handleSubmit} ><b>Submit</b></button>

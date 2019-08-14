@@ -15,7 +15,7 @@ import axios from 'axios';
 class Cobol extends Component{
     constructor(props) {
         super(props);
-        this.state = { name:"", array:[],  count:1, Users: [], comments:'', cError:'' };
+        this.state = { name:"", array:[],  count:1, Users: [],CUsers2:[], comments:'', cError:'' };
     }
     incrementMe =async () => {
         debugger;
@@ -23,6 +23,7 @@ class Cobol extends Component{
             const payload=count;
             await api.increment(payload).then(res=>{
                 this.setState({count:this.state.count+1})
+                browserHistory.push("/cobol"); 
         })
     }
     handleSubmit40=(e)=> {
@@ -53,14 +54,19 @@ class Cobol extends Component{
        handleChange=(e)=>{
            this.setState({[e.target.name]:e.target.value});
        }
-    componentDidMount(){
+       componentDidMount(){
         axios.get('http://localhost:9000/details')
-        
         .then(res => {
-     
         this.setState({Users: res.data});
         console.log(this.state.Users);
         });
+
+        axios.get('http://localhost:9000/like')
+        .then(res => {
+        this.setState({CUsers2: res.data});
+        console.log(this.state.CUsers2);
+        });
+
         }
 
   
@@ -81,6 +87,7 @@ add=()=>{
     }
   
     render(){
+        var like=0;
         return(
             <div >
                 <div className="Header"> <div className="element">
@@ -113,7 +120,12 @@ add=()=>{
                                 Comments  : {this.state.Users.map(user => <div>{user.comments}</div>)}
                             </div> 
                            <a href = {cobolbook} target = "_blank"><b id="read">Read</b></a> 
-                  <button className="clickbutton" onClick={this.incrementMe} > Likes:{this.state.count}<img className="netbook" src={likes} alt={"likes"} height="30" width="30" ></img> </button>
+                           {this.state.CUsers2.map(category => {
+                                    if(category.count)
+                                        like=like+1;
+                                            })}
+                  <button className="clickbutton" onClick={this.incrementMe} > Likes:{like}
+                  <img className="netbook" src={likes} alt={"likes"} height="30" width="30" ></img> </button>
                   <input className="input_box" placeholder="write your comments" type='text' name='comments' onChange={this.handleChange}></input>
                   <p className='red'>{this.state.cError}</p>
                   <button className="submitbutton" onClick={this.handleSubmit} ><b>Submit</b></button>

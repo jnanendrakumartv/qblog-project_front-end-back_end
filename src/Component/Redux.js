@@ -15,7 +15,7 @@ import axios from 'axios';
 class Redux extends Component{
     constructor(props) {
         super(props);
-        this.state = { name:"", array:[],  count:1, Users: [], comments:'', cError:'' };
+        this.state = { name:"", array:[],  count:1, Users: [], RDUsers:[] ,comments:'', cError:'' };
     }
     incrementMe =async () => {
         debugger;
@@ -23,6 +23,7 @@ class Redux extends Component{
             const payload=count;
             await api.increment(payload).then(res=>{
                 this.setState({count:this.state.count+1})
+                browserHistory.push("/redux");
         })
     }
     handleSubmit40=(e)=> {
@@ -55,14 +56,19 @@ class Redux extends Component{
            this.setState({[e.target.name]:e.target.value});
        }
 
-    componentDidMount(){
+       componentDidMount(){
         axios.get('http://localhost:9000/details')
-        
         .then(res => {
-     
         this.setState({Users: res.data});
         console.log(this.state.Users);
         });
+
+        axios.get('http://localhost:9000/like')
+        .then(res => {
+        this.setState({RDUsers: res.data});
+        console.log(this.state.RDUsers);
+        });
+
         }
             add=()=>{
                 this.state.arry.push(this.state.name);
@@ -76,6 +82,7 @@ class Redux extends Component{
         browserHistory.push("/test");
     }
     render(){
+        var like=0;
         return(
             <div >
                 <div className="Header"> <div className="element">
@@ -108,7 +115,12 @@ class Redux extends Component{
                                         Comments  : {this.state.Users.map(user => <div>{user.comments}</div>)}
                                     </div> 
                                     <a href = {redux1} target = "_blank"><b id="read">Read</b></a>
-                  <button className="clickbutton" onClick={this.incrementMe} > Likes:{this.state.count}<img className="netbook" src={likes} alt={"likes"} height="30" width="30" ></img> </button>
+                                    {this.state.RDUsers.map(category => {
+                                        if(category.count)
+                                            like=like+1;
+                                                })}
+                  <button className="clickbutton" onClick={this.incrementMe} > Likes:{like}                  
+                  <img className="netbook" src={likes} alt={"likes"} height="30" width="30" ></img> </button>
                   <input className="input_box" placeholder="write your comments" type='text' name='comments' onChange={this.handleChange}></input>
                   <p className='red'>{this.state.cError}</p>
                   <button className="submitbutton" onClick={this.handleSubmit} ><b>Submit</b></button>
