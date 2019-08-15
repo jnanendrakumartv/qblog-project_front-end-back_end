@@ -74,22 +74,13 @@ class C extends Component{
             add=()=>{
                 this.state.arry.push(this.state.name);
                 this.setState({array:this.state.array});  
-            }
-    // incrementMe = () => {
-    //     let newCount = this.state.count + 1
-    //     this.setState({
-    //       count: newCount
-    //     })
-    //   }
-    
+            }    
       handleSubmit4=(event)=> {
         browserHistory.push("/");
-    }
-    handleSubmit1=(event)=> {
-        browserHistory.push("/test");
-    }
-    
-  
+            }
+            handleSubmit1=(event)=> {
+                browserHistory.push("/test");
+            }
     render(){
         var like=0;
         return(
@@ -100,7 +91,7 @@ class C extends Component{
                 <div className="col-xs-10 col-sm-10 col-md-10 col-lg-10"></div>
                 </div></div>
             </div>
-            <div className="quotes">     
+            <div className="quotes">    
                 <div class="box box2"><img className="home" src={home} alt={"home"} height="30" width="30" onClick={this.handleSubmit40}></img> 
                 <div id="net" className="row">                      
                     <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"> </div>                          
@@ -122,8 +113,6 @@ class C extends Component{
                                  <div>
                                     Comments  : {this.state.Users.map(user => <div>{user.comments}</div>)}
                                 </div> 
-                                   
-                    
                     <a href = {Bhagavad} target = "_blank"><b id="read">Read</b></a>
                     {this.state.Users1.map(category => {
                       if(category.count)
